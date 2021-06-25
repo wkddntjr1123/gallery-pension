@@ -111,7 +111,7 @@ function MyApp({ Component, pageProps }) {
           margin: 0;
           padding: 0;
           border: 0;
-          font-size: 100%;
+          font-size: 95%;
           font-family: "Noto Sans CJK KR", sans-serif;
           vertical-align: baseline;
           box-sizing: border-box;

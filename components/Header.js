@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 const Header = ({ children }) => {
   useEffect(() => {
     let beforeScrollTop = 0;
-    window.scrollTo = 0;
     document.addEventListener("scroll", () => {
       let headerElement = document.getElementById("header");
       let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
