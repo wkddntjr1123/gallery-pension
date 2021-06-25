@@ -3,12 +3,19 @@ import { useEffect, useState } from "react";
 const Header = ({ children }) => {
   useEffect(() => {
     let beforeScrollTop = 0;
+    window.scrollTo = 0;
     document.addEventListener("scroll", () => {
+      let headerElement = document.getElementById("header");
       let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScrollTop > beforeScrollTop) {
-        document.getElementById("header").classList.add("scroll-down");
+      if (currentScrollTop !== 0) {
+        headerElement.classList.remove("scroll-top");
       } else {
-        document.getElementById("header").classList.remove("scroll-down");
+        headerElement.classList.add("scroll-top");
+      }
+      if (currentScrollTop > beforeScrollTop) {
+        headerElement.classList.add("scroll-down");
+      } else {
+        headerElement.classList.remove("scroll-down");
       }
       beforeScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
     });
@@ -16,9 +23,9 @@ const Header = ({ children }) => {
 
   return (
     <>
-      <div id="header" className="header">
+      <header id="header" className="header scroll-top">
         {children}
-      </div>
+      </header>
       <style jsx>
         {`
           .header {
@@ -30,10 +37,13 @@ const Header = ({ children }) => {
             width: 100%;
             height: 6rem;
             background-color: rgba(34, 34, 34, 0.7);
-            transition: top ease 0.4s;
+            transition: top ease 1s, background-color ease 1s;
           }
           .scroll-down {
             top: -6.5rem;
+          }
+          .scroll-top {
+            background-color: transparent;
           }
         `}
       </style>
