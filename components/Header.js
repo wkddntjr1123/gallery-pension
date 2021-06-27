@@ -6,11 +6,7 @@ const Header = ({ children }) => {
     document.addEventListener("scroll", () => {
       let headerElement = document.getElementById("header");
       let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScrollTop !== 0) {
-        headerElement.classList.remove("scroll-top");
-      } else {
-        headerElement.classList.add("scroll-top");
-      }
+
       if (currentScrollTop > beforeScrollTop) {
         headerElement.classList.add("scroll-down");
       } else {
@@ -37,12 +33,10 @@ const Header = ({ children }) => {
             height: 6rem;
             background-color: rgba(34, 34, 34, 0.7);
             transition: top ease 1s, background-color ease 1s;
+            z-index: 100;
           }
           .scroll-down {
             top: -6.5rem;
-          }
-          .scroll-top {
-            background-color: transparent;
           }
         `}
       </style>

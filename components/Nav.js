@@ -30,7 +30,7 @@ const Subnav = ({ data }) => {
           display: block;
           border-bottom: 1px solid #c2c2c2;
           transition: color ease 0.3s;
-          font-size: initial;
+          font-size: 0.8rem;
           text-align: center;
           line-height: 2.5rem;
           color: #c2c2c2;
@@ -45,45 +45,49 @@ const Subnav = ({ data }) => {
 
 const Nav = () => {
   const menu = [
-    { title: "메뉴1", link: "#" },
-    { title: "메뉴2", link: "#" },
-    { title: "메뉴3", link: "#" },
-    { title: "메뉴4", link: "#" },
-    { title: "메뉴5", link: "#" },
-    { title: "메뉴6", link: "#" },
+    { title: "펜션소개", link: "/about" },
+    { title: "객실소개", link: "#" },
+    { title: "부대시설", link: "#" },
+    { title: "서비스", link: "#" },
+    { title: "예약", link: "#" },
+    { title: "커뮤니티", link: "#" },
   ];
   const subData = {
     menu1: [
-      { title: "test1", link: "#" },
-      { title: "test2", link: "#" },
-      { title: "test3", link: "#" },
+      { title: "펜션소개", link: "#" },
+      { title: "전경소개", link: "#" },
+      { title: "오시는길", link: "#" },
     ],
     menu2: [
-      { title: "test1", link: "#" },
-      { title: "test2", link: "#" },
+      { title: "A101호(침대)", link: "#" },
+      { title: "A102호(침대)", link: "#" },
+      { title: "A103호(온돌)", link: "#" },
+      { title: "B201호(침대)", link: "#" },
+      { title: "B202호(침대)", link: "#" },
+      { title: "B203호(온돌)", link: "#" },
     ],
     menu3: [
-      { title: "test1", link: "#" },
-      { title: "test2", link: "#" },
+      { title: "개별바비큐장", link: "#" },
+      { title: "노래방", link: "#" },
     ],
     menu4: [
-      { title: "test1", link: "#" },
-      { title: "test2", link: "#" },
+      { title: "바비큐&숯&그릴", link: "#" },
+      { title: "식사", link: "#" },
     ],
     menu5: [
-      { title: "test1", link: "#" },
-      { title: "test2", link: "#" },
+      { title: "실시간예약", link: "#" },
+      { title: "요금가이드", link: "#" },
     ],
     menu6: [
-      { title: "test1", link: "#" },
-      { title: "test2", link: "#" },
+      { title: "공지사항", link: "#" },
+      { title: "갤러리", link: "#" },
     ],
   };
 
   const handleDisplay = (event, index) => {
     const selected = document.getElementsByClassName("sub-box")[index];
     if (event.type === "mouseover") {
-      selected.style.maxHeight = "10rem";
+      selected.style.maxHeight = "15rem";
     } else {
       selected.style.maxHeight = "0";
     }
@@ -116,7 +120,7 @@ const Nav = () => {
             transition: color ease 0.3s;
           }
           .nav-item a:hover {
-            color: rgba(255, 88, 37, 0.767);
+            color: #ffaaaa;
           }
         `}
       </style>

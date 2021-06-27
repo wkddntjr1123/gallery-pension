@@ -1,5 +1,5 @@
 import Nav from "./Nav";
 import Footer from "./Footer";
 import Header from "./Header";
-
-export { Nav, Footer, Header };
+import Slider from "./Slider";
+export { Nav, Footer, Header, Slider };

@@ -1,3 +1,3 @@
-import { NaverMap, RenderAfterNavermapsLoaded } from "react-naver-maps";
+import { NaverMap, RenderAfterNavermapsLoaded, Marker } from "react-naver-maps";
 
-export { NaverMap, RenderAfterNavermapsLoaded };
+export { NaverMap, RenderAfterNavermapsLoaded, Marker };
