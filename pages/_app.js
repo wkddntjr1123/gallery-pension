@@ -1,8 +1,11 @@
 import { Nav, Footer, Header } from "../components/components";
-
+import Head from "next/head";
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5qykfsbn5o"></script>
+      </Head>
       <div className="container">
         <Header>
           <Nav />
@@ -155,16 +158,16 @@ function MyApp({ Component, pageProps }) {
           border-spacing: 0;
         }
         h1 {
-          font-size: 2rem;
+          font-size: 3rem;
         }
         h2 {
-          font-size: 1.5rem;
+          font-size: 2.2rem;
         }
         h3 {
-          font-size: 1.33rem;
+          font-size: 1.8rem;
         }
         h4 {
-          font-size: 1.17rem;
+          font-size: 1.33rem;
         }
         h5 {
           font-size: 0.83rem;

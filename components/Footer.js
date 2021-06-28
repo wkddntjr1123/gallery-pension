@@ -59,6 +59,7 @@ const Footer = () => {
         {`
           .footer {
             padding: 3rem 12%;
+            background-color: #f6f6f6;
           }
           .footer-menu {
             font-size: 1.3rem;

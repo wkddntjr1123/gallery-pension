@@ -1,52 +1,58 @@
-import ReactDOM from "react-dom";
-import { useEffect } from "react";
-import { Slider } from "../components/components";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Slider, NaverMaps } from "../components/components";
 
 export default function Home() {
-  useEffect(async () => {
-    const NaverMap = (await import("../components/NaverMaps")).NaverMap;
-    const RenderAfterNavermapsLoaded = (await import("../components/NaverMaps")).RenderAfterNavermapsLoaded;
-    const Marker = (await import("../components/NaverMaps")).Marker;
-    const navermaps = window.naver;
-    const map = (
-      <RenderAfterNavermapsLoaded ncpClientId={"5qykfsbn5o"} error={<p>Maps Load Error</p>} loading={<p>Maps Loading...</p>}>
-        <NaverMap
-          mapDivId={"map-wrapper"} // default: react-naver-map
-          style={{
-            width: "50rem",
-            height: "25rem",
-          }}
-          defaultCenter={{ lat: 37.948642161999715, lng: 128.6220314407252 }} // 지도 초기 위치
-          defaultZoom={19}>
-          <Marker
-            position={{ lat: 37.948682162999715, lng: 128.62203144072524 }}
-            title="갤러리펜션"
-            onClick={() => {
-              alert("여기는 네이버 입니다.");
-            }}
-          />
-        </NaverMap>
-      </RenderAfterNavermapsLoaded>
-    );
-    ReactDOM.render(map, document.getElementById("map-wrapper"));
-  });
-
+  const iconStyleProps = {
+    primaryFill: "purple",
+    className: "iconClass",
+  };
   return (
     <>
       <div className="test">
         <Slider />
-        <div id="map-wrapper"></div>
+        <div className="map-wrapper">
+          <div className="map-title">
+            <h2>MAP & LOCATION</h2>
+            <p>sdfjskdfjsdkjfksd</p>
+          </div>
+          <NaverMaps />
+          <div className="map-info">
+            <ul>
+              <li>주소</li>
+              <li>강원도 양양군 현북면 면옥치길 285</li>
+            </ul>
+            <ul>
+              <li>전화</li>
+              <li>010-XXXX-XXXX</li>
+            </ul>
+            <ul>
+              <li>오시는길</li>
+              <li>양양IC에서 20분</li>
+              <li>계곡물줄기를 따라 신호등도 없는 깨끗한 도로이므로 경치구경하는 드라이브코스로도 매우 좋습니다.</li>
+              <li>도로명 주소 : 강원 양양군 현북면 면옥치길 285</li>
+            </ul>
+          </div>
+        </div>
       </div>
       <style jsx>{`
-        .test {
-          background-color: #ffd6d6;
+        .map-wrapper {
+          max-width: calc(100% - 60px);
+          margin: auto;
         }
-        #map-wrapper {
-          width: 100%;
-          display: flex;
-          justify-content: center;
+        .map-title {
+        }
+        .map-title h2 {
+          text-align: center;
+          font-weight: bold;
+          //opacity: 0;
+          padding-top: 20px;
+          transition: 0.5s padding ease, 0.5s opacity ease;
+        }
+        .map-info {
+        }
+        .map-info ul {
+          font-size: 1.7rem;
+          width: 50%;
+          display: inline-block;
         }
       `}</style>
     </>
