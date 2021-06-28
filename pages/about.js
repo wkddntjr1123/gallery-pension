@@ -9,11 +9,30 @@ export default function Home() {
     <>
       <div className="test">
         <Slider />
-        <div className="map-wrapper">
-          <div className="map-title">
-            <h2>MAP & LOCATION</h2>
+        <section data-aos="zoom-in-up" data-aos-duration="2000" className="about-section">
+          <div className="row">
+            <div className="left-about">
+              <h5>
+                어쩌구저쩌구
+                <br />
+                어쩌구저쩌구어쩌구저쩌구
+              </h5>
+              <h2>ABOUT</h2>
+              <div className="seperate-line">∎</div>
+            </div>
+            <div className="right-about">
+              <p>어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구</p>
+              <p>어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구</p>
+              <p>어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구</p>
+            </div>
+          </div>
+        </section>
+        <div className="map-wrapper section2">
+          <div data-aos="fade-up" data-aos-duration="2000" className="map-title">
+            <h2>오시는길</h2>
             <p>sdfjskdfjsdkjfksd</p>
           </div>
+
           <NaverMaps />
           <div className="map-info">
             <ul>
@@ -34,6 +53,57 @@ export default function Home() {
         </div>
       </div>
       <style jsx>{`
+        .seperate-line {
+          color: #ffc300;
+          margin: 0 auto;
+          width: 8rem;
+          text-align: center;
+          line-height: 0rem;
+          margin-top: 1.5rem;
+        }
+        .seperate-line::before {
+          float: left;
+          display: block;
+          width: 40%;
+          content: " ";
+          border: 1px solid #ffc300;
+        }
+        .seperate-line::after {
+          float: right;
+          display: block;
+          width: 40%;
+          content: " ";
+          border: 1px solid #ffc300;
+        }
+        .about-section {
+          width: 80%;
+          margin: auto;
+          padding: 5rem 0;
+        }
+        .row {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+        .left-about {
+          display: inline-block;
+          width: 50%;
+        }
+        .left-about > h5,
+        h2 {
+          margin: 0 0 1rem 0;
+          text-align: center;
+          line-height: 1.5rem;
+        }
+        .right-about {
+          display: inline-block;
+          width: 50%;
+        }
+        .right-about p {
+          font-size: 1.1rem;
+          line-height: 1.8rem;
+        }
+
         .map-wrapper {
           max-width: calc(100% - 60px);
           margin: auto;
@@ -43,9 +113,10 @@ export default function Home() {
         .map-title h2 {
           text-align: center;
           font-weight: bold;
-          //opacity: 0;
-          padding-top: 20px;
-          transition: 0.5s padding ease, 0.5s opacity ease;
+        }
+        .map-title p {
+          text-align: center;
+          font-weight: bold;
         }
         .map-info {
         }

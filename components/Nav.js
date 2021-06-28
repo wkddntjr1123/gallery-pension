@@ -111,7 +111,6 @@ const Nav = () => {
             display: inline-block;
             position: relative;
             font-size: 1.1rem;
-            font-weight: bold;
           }
           .nav-item a {
             display: block;

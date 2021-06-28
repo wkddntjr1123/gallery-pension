@@ -18,24 +18,25 @@ function MyApp({ Component, pageProps }) {
    v2.0 | 20110126
    License: none (public domain)
 */
-@font-face {
-  font-family: 'Noto Sans CJK KR';
-  font-style: normal;
-  font-weight: normal;
-  src: src: url("/fonts/NotoSansKR-Regular.otf") format("truetype");
-}
-@font-face {
-  font-family: 'Noto Sans CJK KR';
-  font-style: normal;
-  font-weight: 100;
-  src: url("/fonts/NotoSansKR-Thin.otf") format("truetype");
-}
-@font-face {
-  font-family: 'Noto Sans CJK KR';
-  font-style: normal;
-  font-weight: bold;
-  src: src: url("/fonts/NotoSansKR-Bold.otf") format("truetype");
-}
+
+        @font-face {
+          font-family: "Noto Sans CJK KR";
+          font-style: normal;
+          font-weight: normal;
+          src: url("/fonts/NotoSansKR-Regular.otf") format("truetype");
+        }
+        @font-face {
+          font-family: "Noto Sans CJK KR";
+          font-style: normal;
+          font-weight: 100;
+          src: url("/fonts/NotoSansKR-Thin.otf") format("truetype");
+        }
+        @font-face {
+          font-family: "Noto Sans CJK KR";
+          font-style: normal;
+          font-weight: bold;
+          src: url("/fonts/NotoSansKR-Bold.otf") format("truetype");
+        }
         html,
         body,
         div,
