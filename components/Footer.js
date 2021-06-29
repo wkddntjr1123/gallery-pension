@@ -20,85 +20,94 @@ const Footer = () => {
             </li>
           ))}
         </ul>
-        <div className="footer-info">
-          <div className="info-left">
-            <ul>
-              <li>
-                <span>상호</span>
-                갤러리펜션
-              </li>
-              <li>
-                <span>예약전화</span>
-                010-xxxx-xxxx
-              </li>
-              <li>
-                <span>주소</span>
-                강원도 양양군 XXXX XXX
-              </li>
-              <li>
-                <span>어쩌구</span>
-                저쩌구
-              </li>
-            </ul>
-          </div>
-          <div className="info-right">
-            <ul>
-              <li>
-                <span>사업자등록번호</span>
-                XXX-XX-XXXXX
-              </li>
-              <li>
-                <span>대표자</span>
-                장우석
-              </li>
-            </ul>
-          </div>
-        </div>
+
+        <ul className="footer-info">
+          <li>
+            <div>
+              <img src="http://d2ejry5vjt6jp9.cloudfront.net/common/icon/footerTypeA/tel.png" />
+              010-XXXX-XXXX
+            </div>
+          </li>
+          <li>
+            <div>
+              <img src="http://d2ejry5vjt6jp9.cloudfront.net/common/icon/footerTypeA/point.png" />
+              양양군 현북면 면옥치길 285
+            </div>
+          </li>
+          <li>
+            <div>
+              <img src="http://d2ejry5vjt6jp9.cloudfront.net/common/icon/footerTypeA/cash.png" />
+              입금계좌 농협 699-02-0200XX (예금주 : 송영선)
+            </div>
+          </li>
+          <li>
+            <div>
+              <img src="http://d2ejry5vjt6jp9.cloudfront.net/common/icon/footerTypeA/cor.png" />
+              업체명 : 갤러리펜션
+            </div>
+          </li>
+          <li>
+            <div>
+              <img src="http://d2ejry5vjt6jp9.cloudfront.net/common/icon/footerTypeA/text.png" />
+              사업자등록번호 XXX-XX-XXXXX
+            </div>
+          </li>
+        </ul>
       </footer>
       <style jsx>
         {`
           .footer {
-            padding: 3rem 12%;
-            background-color: #f6f6f6;
+            background-color: rgb(54 55 59);
           }
           .footer-menu {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: bold;
             text-align: left;
-            border-bottom: 2px solid #bdbdbd;
-            padding: 0 0 0.3rem 0.3rem;
+            display: flex;
+            justify-content: space-around;
+            background-color: #4e5158;
           }
           .footer-menu li {
             display: inline-block;
-            padding: 1rem 0;
             font-weight: bold;
-            color: inherit;
+            padding: 0.3rem 0;
+            width: 100%;
+            text-align: center;
+            border-right: 1px solid #a3a3a3;
+            transition: background-color 0.5s ease;
           }
-          .footer-menu li::after {
-            content: "|";
-            margin: 0 0.6rem;
-            color: #b7b7b7;
+          .footer-menu li:hover {
+            background-color: rgba(255, 255, 255, 1);
           }
-          .footer-menu li:last-child:after {
-            content: "";
-            margin: 0;
+          .footer-menu li a:hover {
+            color: rgb(78, 81, 88);
+          }
+          .footer-menu li a {
+            display: block;
+            padding: 0.7rem 0;
+            color: white;
+            transition: color 0.5s ease;
           }
           .footer-info {
             display: flex;
+            justify-content: space-around;
             padding: 1.5rem 0 1.5rem 0.3rem;
             line-height: 2.5rem;
             font-size: 1rem;
-            font-weight: bold;
+            background-color: #36373b;
           }
-          .info-left {
-            width: 52%;
+          .footer-info li {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
-          .footer-info li span {
-            display: inline-block;
-            width: 11rem;
-            font-size: 1.2rem;
-            position: relative;
-            top: 0.2rem;
+          .footer-info li div {
+            color: #c3c3b4;
+          }
+          .footer-info li div img {
+            display: block;
+            margin: auto;
           }
         `}
       </style>
