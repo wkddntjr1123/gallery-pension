@@ -1,4 +1,5 @@
-import { Slider, NaverMaps } from "../components/components";
+import Slider from "../components/about/Slider";
+import NaverMaps from "../components/about/NaverMaps";
 
 export default function Home() {
   const iconStyleProps = {

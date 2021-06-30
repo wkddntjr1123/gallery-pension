@@ -1,0 +1,250 @@
+import Container from "../../components/Container";
+import SlideTabs from "../../components/SlideTabs";
+
+const Reservation = () => {
+  const tabData = { title: ["예약안내", "실시간예약", "예약확인/취소"], contents: [<Tab1 />, "내용2", "내용3"] };
+
+  return (
+    <>
+      <Container>
+        <SlideTabs {...tabData} />
+      </Container>
+    </>
+  );
+};
+
+const Tab1 = () => {
+  return (
+    <>
+      <div data-aos="fade-up" data-aos-duration="1500">
+        <h4>
+          <span>01.</span> 객실안내
+        </h4>
+        <table className="room">
+          <thead>
+            <tr>
+              <th rowSpan="2">객실명</th>
+              <th rowSpan="2">사이즈</th>
+              <th colSpan="2">인원</th>
+              <th rowSpan="2">비수기</th>
+              <th colSpan="2">성수기</th>
+            </tr>
+            <tr>
+              <th>기준</th>
+              <th>최대</th>
+              <th>주중</th>
+              <th>주말</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A101호</td>
+              <td>x평</td>
+              <td>4</td>
+              <td>6</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+            </tr>
+            <tr>
+              <td>A102호</td>
+              <td>x평</td>
+              <td>4</td>
+              <td>6</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+            </tr>
+            <tr>
+              <td>A103호</td>
+              <td>x평</td>
+              <td>4</td>
+              <td>6</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+            </tr>
+            <tr>
+              <td>B201호</td>
+              <td>x평</td>
+              <td>4</td>
+              <td>6</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+            </tr>
+            <tr>
+              <td>B202호</td>
+              <td>x평</td>
+              <td>4</td>
+              <td>6</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+            </tr>
+            <tr>
+              <td>B203호</td>
+              <td>x평</td>
+              <td>4</td>
+              <td>6</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+              <td>200,000원</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>
+          <span>02.</span> 기본예약안내
+        </h4>
+        <div className="content-box">
+          <p>객실 예약은 전화 및 인터넷 예약으로 가능합니다.</p>
+          <p>이용은 예약 및 비예약으로 가능하나 예약손님을 우선으로 적용하오니 예약을 하시는 것이 더욱 편리합니다.</p>
+          <p>전화 예약후 객실 예약 금액을 입금계좌로 입금하시면 예약 완료됩니다.</p>
+          <p>예약후 6시간 안에 객실 요금을 완불해주셔야합니다.(※미입금시 자동 예약 취소됩니다.)</p>
+          <p>당일 또는 하루전 그리고 마지막 남은 객실예약은 예약신청 후 2시간 안에 입금하셔야 합니다.</p>
+          <p>예약금 입금시 예약자 이름으로 하셔야 합니다.(다른 이름으로 입금하신 경우 꼭 전화로 알려주세요.)</p>
+          <p>성수기 기간은 실시간 예약 페이지를 참고해주세요. </p>
+          <p>※ 예약시 환불 기준을 숙지하시고 예약하시기 바랍니다.</p>
+          <p>※ 성수기기간 실시간예약달력 또는 공지사항</p>
+          <p>※ 기준인원 초과시 1인당 20,000원의 요금이 추가됩니다. (영유아, 아동 포함 / 예약시에 꼭 말씀해주세요)</p>
+          <p>※ 바베큐 이용시 숯불은 오후3시~오후8시까지 불피워드립니다. (11시까지 운영)</p>
+          <p>※ 월요일~목요일 - 주중요금 / 금요일~일요일 및 공휴일 전날 - 주말요금이 적용됩니다</p>
+          <p>※ 입금은 꼭 예약자명으로 해주시고 입금자명이 상이할 경우 꼭 전화주세요.</p>
+          <p>※ 예약후 6시간안에 전액 입금하시고 입금확인이 안되면 별도의 통보없이 예약취소 처리 됩니다.</p>
+          <p>※ 펜션이나 캠핑 예약에 궁금하신 점은 전화나 게시판으로 문의해주시면 친철하게 안내해 드립니다.​ ​</p>
+          <p>※​ 객실내에는 화재 위험 있는 양초,풍선 부착등을 삼가해주세요.</p>
+          <p>※​ 객실내에서는 금연이며 생선,해물등 냄새 심한 음식은 객실내에서는 조리할수 없습니다.​</p>
+        </div>
+
+        <h4>
+          <span>03.</span> 환불규정
+        </h4>
+        <div className="content-box">
+          <p>· 올바른 예약문화의 정착을 위하여 불가피한 조치이오니 양해 부탁드립니다.</p>
+          <p>· 환불 적용은 이용요금 100% 입금시에만 적용합니다.</p>
+          <p>· 객실과 날짜는 신중히 생각하시고 결정해주시기 바랍니다.</p>
+          <p>· No-Show 예약건에 대해서는 환불이 불가합니다</p>
+          <p>· 예약일 변경시 발생한 수수료도 취소 수수료와 동일합니다.</p>
+          <p>· 예약시 환불기준을 숙지하시고 예약하시기 바랍니다.</p>
+          <table className="fee">
+            <thead>
+              <tr>
+                <th>기준</th>
+                <th>취소수수료(%)</th>
+                <th>환불액(%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>이용일 당일 취소</td>
+                <td>100%</td>
+                <td>0%(환불없음)</td>
+              </tr>
+              <tr>
+                <td>이용일 1일전 취소</td>
+                <td>90%</td>
+                <td>10%</td>
+              </tr>
+              <tr>
+                <td>이용일 2일전 취소</td>
+                <td>80%</td>
+                <td>20%</td>
+              </tr>
+              <tr>
+                <td>이용일 3일전 취소</td>
+                <td>70%</td>
+                <td>30%</td>
+              </tr>
+              <tr>
+                <td>이용일 4일전 취소</td>
+                <td>60%</td>
+                <td>40%</td>
+              </tr>
+              <tr>
+                <td>이용일 5일전 취소</td>
+                <td>50%</td>
+                <td>50%</td>
+              </tr>
+              <tr>
+                <td>이용일 6일전 취소</td>
+                <td>40%</td>
+                <td>60%</td>
+              </tr>
+              <tr>
+                <td>이용일 7일전 취소</td>
+                <td>10%</td>
+                <td>90%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <style jsx>
+        {`
+          h4 {
+            padding-bottom: 0.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #c9c9c9;
+            color: #904200;
+          }
+          h4 span {
+            color: #d86e00;
+          }
+          .highlight {
+            color: rgba(219, 205, 0, 0.932);
+            font-size: 1.8rem;
+          }
+          .content-box {
+            box-shadow: 0px 0px 3px 2px #e8e8e8;
+            padding: 1rem;
+            margin-bottom: 3rem;
+          }
+          .content-box p {
+            font-size: 1rem;
+            line-height: 2rem;
+          }
+          table.room {
+            width: 100%;
+            margin-top: 1rem;
+            border-radius: 0.3rem;
+            box-shadow: 0px 0px 5px 1px #dadada;
+            overflow: hidden;
+            text-align: center;
+          }
+
+          table.fee {
+            width: 100%;
+            margin-top: 1rem;
+            border-radius: 0.3rem;
+            box-shadow: 0px 0px 5px 1px #dadada;
+            overflow: hidden;
+            text-align: center;
+          }
+          table.fee td,
+          table.room td {
+            padding: 0.6rem;
+            border: 1px solid #e6e6e6;
+          }
+          table.fee thead tr,
+          table.room thead tr {
+            background-color: #7b7b7b;
+          }
+          table.fee thead th,
+          table.room thead th {
+            vertical-align: middle;
+            padding: 0.6rem;
+            color: white;
+            font-weight: bold;
+            border: 1px solid #9c9c9c;
+          }
+          table.fee tbody tr:nth-child(2n),
+          table.room tbody tr:nth-child(2n) {
+            background-color: #f3f3f3;
+          }
+        `}
+      </style>
+    </>
+  );
+};
+export default Reservation;

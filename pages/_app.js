@@ -1,5 +1,10 @@
-import { Nav, Footer, Header } from "../components/components";
+import Nav from "../components/layout/Nav";
+import Footer from "../components/layout/Footer";
+import Header from "../components/layout/Header";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Head from "next/head";
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -14,10 +19,26 @@ function MyApp({ Component, pageProps }) {
         <Footer />
       </div>
       <style jsx global>{`
-        /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+        @font-face {
+          font-family: "Arita-buri-SemiBold";
+          src: url("/fonts/Arita-buriL.otf") format("truetype");
+          font-weight: 100;
+          font-style: normal;
+        }
+        @font-face {
+          font-family: "Arita-buri-SemiBold";
+          src: url("/fonts/Arita-buriM.otf") format("truetype");
+          font-weight: normal;
+          font-style: normal;
+        }
+        @font-face {
+          font-family: "Arita-buri-SemiBold";
+          src: url("/fonts/Arita-buriSB.otf") format("truetype");
+          font-weight: bold;
+          font-style: normal;
+        }
+  
+        }
 
         @font-face {
           font-family: "Noto Sans CJK KR";
@@ -115,12 +136,13 @@ function MyApp({ Component, pageProps }) {
           margin: 0;
           padding: 0;
           border: 0;
-          font-size: 95%;
-          font-family: "Noto Sans CJK KR", sans-serif;
+          font-size: 100%;
+          font-family: "Arita-buri-SemiBold", "Noto Sans CJK KR", sans-serif;
           vertical-align: baseline;
           box-sizing: border-box;
           text-decoration: none;
           color: #353535;
+
         }
         /* HTML5 display-role reset for older browsers */
         article,
