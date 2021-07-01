@@ -2,7 +2,7 @@ import Container from "../../components/Container";
 import SlideTabs from "../../components/SlideTabs";
 
 const Reservation = () => {
-  const tabData = { title: ["예약안내", "실시간예약", "예약확인/취소"], contents: [<Tab1 />, "내용2", "내용3"] };
+  const tabData = { title: ["예약안내", "실시간예약", "예약확인/취소"], contents: [<Tab1 />, "내용2", <Tab3 />] };
 
   return (
     <>
@@ -244,6 +244,113 @@ const Tab1 = () => {
           }
         `}
       </style>
+    </>
+  );
+};
+
+const Tab3 = () => {
+  return (
+    <>
+      <div className="container">
+        <label>예약자명</label>
+        <div className="name">
+          <input type="text" />
+        </div>
+        <label>휴대폰번호</label>
+        <div className="phone">
+          <div>
+            <select defaultValue="010">
+              <option value="010">010</option>
+              <option value="011">011</option>
+              <option value="016">016</option>
+              <option value="017">017</option>
+            </select>
+          </div>
+          <span>-</span>
+          <div>
+            <input type="text" />
+          </div>
+          <span>-</span>
+          <div>
+            <input type="text" />
+          </div>
+        </div>
+        <button type="button">예약조회</button>
+      </div>
+      <style jsx>{`
+        .container {
+          width: 50%;
+          min-width: 500px;
+          padding: 5rem;
+          margin: 2.5rem auto 0 auto;
+          box-shadow: 0px 0px 6px 1px #c7c7c7;
+          font-family: "Noto Sans CJK KR";
+        }
+        label {
+          display: block;
+          margin: 0 0 0.5rem 0.3rem;
+          color: #797979;
+        }
+        .name input {
+          width: 100%;
+          height: 3.5rem;
+          display: block;
+          border: 1px solid #c3c3c3;
+          border-radius: 5px;
+          margin-bottom: 2.5rem;
+          text-align: center;
+          color: #8b8b8b;
+          font-family: inherit;
+        }
+        .phone {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .phone div {
+          width: 30.333%;
+        }
+        .phone select,
+        .phone input {
+          display: block;
+          width: 100%;
+          height: 3.5rem;
+          border: 1px solid #c3c3c3;
+          border-radius: 5px;
+          text-align: center;
+          color: #8b8b8b;
+          font-family: inherit;
+        }
+        .phone select {
+          text-align-last: center;
+          -ms-text-align-last: center;
+          -moz-text-align-last: center;
+        }
+        select option {
+          background: rgba(255, 255, 255, 0.3);
+          color: #8b8b8b;
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        button {
+          display: block;
+          width: 100%;
+          height: 3.5rem;
+          color: white;
+          background-color: #e2573c;
+          box-shadow: 0px 0px 8px 0px #dcdcdc;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+          font-size: 1.3rem;
+          margin-top: 2.5rem;
+          font-family: inherit;
+          transition: background-color 0.5s ease;
+        }
+        button:hover {
+          background-color: #d82a08;
+        }
+      `}</style>
     </>
   );
 };

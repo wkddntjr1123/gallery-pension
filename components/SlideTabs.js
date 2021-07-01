@@ -20,7 +20,7 @@ const SlideTabs = ({ title, contents }) => {
           <AppBar position="static" style={styles.Appber}>
             <TabList onChange={handleChange} aria-label="simple tabs example">
               {title.map((item, index) => (
-                <Tab key={index} label={item} value={String(index + 1)} />
+                <Tab key={index} label={item} value={String(index + 1)} style={{ fontFamily: "Arita-buri-SemiBold", color: "rgb(72 72 72)", height: "100%" }} />
               ))}
             </TabList>
           </AppBar>
@@ -31,10 +31,6 @@ const SlideTabs = ({ title, contents }) => {
           ))}
         </TabContext>
       </div>
-      <style jsx>{`
-        .test {
-        }
-      `}</style>
     </>
   );
 };

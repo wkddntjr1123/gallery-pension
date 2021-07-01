@@ -7,7 +7,7 @@ const Container = ({ children }) => {
           max-width: 1280px;
           width: 100%;
           padding: 0 5rem;
-          margin: 5% auto;
+          margin: 6rem auto;
         }
       `}</style>
     </>

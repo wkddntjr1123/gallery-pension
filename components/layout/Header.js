@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
 
 const Header = ({ children }) => {
-  useEffect(() => {
-    let beforeScrollTop = 0;
-    document.addEventListener("scroll", () => {
-      let headerElement = document.getElementById("header");
-      let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const [isTop, setIsTop] = useState(true);
 
-      if (currentScrollTop > beforeScrollTop) {
-        headerElement.classList.add("scroll-down");
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScrollTop === 0) {
+        setIsTop(true);
       } else {
-        headerElement.classList.remove("scroll-down");
+        setIsTop(false);
       }
-      beforeScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
     });
   }, []);
 
   return (
     <>
-      <header id="header" className="header scroll-top">
+      <header id="header" className="header">
         {children}
       </header>
       <style jsx>
@@ -27,16 +25,14 @@ const Header = ({ children }) => {
             display: flex;
             position: fixed;
             top: 0;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
             width: 100%;
-            height: 6rem;
-            background-color: rgba(34, 34, 34, 0.7);
-            transition: top ease 1s, background-color ease 1s;
+            height: ${isTop ? "6rem" : "4rem"};
+            background-color: ${isTop ? "transparent" : "white"};
+            color: ${isTop ? "#e4f0ff;" : "#292929"};
+            transition: color ease-in-out 0.3s, height ease-in-out 0.5s, background-color ease-in-out 0.5s;
             z-index: 100;
-          }
-          .scroll-down {
-            top: -6.5rem;
           }
         `}
       </style>

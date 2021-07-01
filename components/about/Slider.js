@@ -13,22 +13,22 @@ export default function SimpleSlider() {
       }}
       className="mySwiper">
       <SwiperSlide>
-        <Image src={"/pictures/view1.jpeg"} width={2000} height={1000} alt="" />
+        <Image src={"/pictures/view1.jpeg"} width={2000} height={1200} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <Image src={"/pictures/view2.jpeg"} width={2000} height={1000} alt="" />
+        <Image src={"/pictures/view2.jpeg"} width={2000} height={1200} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <Image src={"/pictures/view3.jpeg"} width={2000} height={1000} alt="" />
+        <Image src={"/pictures/view3.jpeg"} width={2000} height={1200} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <Image src={"/pictures/view4.jpeg"} width={2000} height={1000} alt="" />
+        <Image src={"/pictures/view4.jpeg"} width={2000} height={1200} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <Image src={"/pictures/view5.jpeg"} width={2000} height={1000} alt="" />
+        <Image src={"/pictures/view5.jpeg"} width={2000} height={1200} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <Image src={"/pictures/view6.jpeg"} width={2000} height={1000} alt="" />
+        <Image src={"/pictures/view6.jpeg"} width={2000} height={1200} alt="" />
       </SwiperSlide>
     </Swiper>
   );

@@ -58,6 +58,9 @@ function MyApp({ Component, pageProps }) {
           font-weight: bold;
           src: url("/fonts/NotoSansKR-Bold.otf") format("truetype");
         }
+        html,body{
+          font-family: "Arita-buri-SemiBold", "Noto Sans CJK KR", sans-serif;
+        }
         html,
         body,
         div,
@@ -132,17 +135,16 @@ function MyApp({ Component, pageProps }) {
         time,
         mark,
         audio,
-        video {
+        video,
+        input,
+        select {
           margin: 0;
           padding: 0;
           border: 0;
           font-size: 100%;
-          font-family: "Arita-buri-SemiBold", "Noto Sans CJK KR", sans-serif;
           vertical-align: baseline;
           box-sizing: border-box;
           text-decoration: none;
-          color: #353535;
-
         }
         /* HTML5 display-role reset for older browsers */
         article,

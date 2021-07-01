@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const Subnav = ({ data }) => {
@@ -22,7 +23,7 @@ const Subnav = ({ data }) => {
           left: 50%;
           transition: max-height ease 0.5s;
           background-color: rgba(34, 34, 34, 0.7);
-          top: 5.5rem;
+          top: 4rem;
         }
         .sub-box a {
           display: block;
@@ -101,18 +102,32 @@ const Nav = () => {
             <Subnav data={subData[`menu${index + 1}`]} />
           </li>
         ))}
+        <li className="nav-item">
+          <a href="#" target="_blank">
+            <Image src="/icons/band.png" width={40} height={40}></Image>
+          </a>
+        </li>
       </ul>
       <style jsx>
         {`
+          ul {
+            display: flex;
+            height: 100%;
+            align-items: center;
+          }
           .nav-item {
             display: inline-block;
             position: relative;
             font-size: 1.1rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
           }
           .nav-item a {
             display: block;
-            color: white;
-            padding: 3rem;
+            color: inherit;
+            padding: 1.5rem;
+            text-shadow: 1px 1px 2px rgb(0 0 0 / 50%);
             transition: color ease 0.3s;
           }
           .nav-item a:hover {
