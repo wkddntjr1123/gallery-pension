@@ -1,6 +1,7 @@
 import Slider from "../components/about/Slider";
 import NaverMaps from "../components/about/NaverMaps";
 import HeadImage from "../components/layout/HeadImage";
+import { useEffect } from "react";
 export default function Home() {
   const iconStyleProps = {
     primaryFill: "purple",
