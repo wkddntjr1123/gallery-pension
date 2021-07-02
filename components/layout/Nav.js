@@ -53,8 +53,8 @@ const Nav = () => {
   ];
   const subData = {
     menu1: [
-      { title: "펜션소개", link: "#" },
-      { title: "오시는길", link: "#" },
+      { title: "펜션소개", link: "/about" },
+      { title: "오시는길", link: "/about/#location" },
     ],
     menu2: [
       { title: "A101호(침대)", link: "#" },
@@ -103,7 +103,7 @@ const Nav = () => {
           </li>
         ))}
         <li className="nav-item">
-          <a href="#" target="_blank">
+          <a href="https://band.us/n/a4ad53e274s4K" target="_blank">
             <Image src="/icons/band.png" width={40} height={40}></Image>
           </a>
         </li>

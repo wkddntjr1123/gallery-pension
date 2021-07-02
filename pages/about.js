@@ -1,46 +1,47 @@
 import Slider from "../components/about/Slider";
 import NaverMaps from "../components/about/NaverMaps";
-
+import HeadImage from "../components/layout/HeadImage";
 export default function Home() {
   const iconStyleProps = {
     primaryFill: "purple",
     className: "iconClass",
   };
+  const headerMenus = [
+    { menu: "펜션소개", link: "/about" },
+    { menu: "오시는길", link: "/about/#location" },
+  ];
+
   return (
     <>
-      <div className="test">
+      <HeadImage src="/test.png" title="ABOUT" menus={headerMenus} />
+      <div className="container">
         <Slider />
         <section className="about-section">
-          <div className="row">
+          <div className="row" data-aos="zoom-in-up" data-aos-duration="2000">
             <div className="left-about">
-              <h5 data-aos="zoom-in-up" data-aos-duration="2000">
-                어쩌구저쩌구
+              <p>
+                강원도 양양 상류계곡에 위치한
                 <br />
-                어쩌구저쩌구어쩌구저쩌구
-              </h5>
-              <h2 data-aos="zoom-in-up" data-aos-duration="2000">
-                ABOUT
-              </h2>
-              <div data-aos="zoom-in-up" data-aos-duration="2000" className="seperate-line">
-                ∎
-              </div>
+                자연 공간 <span className="highlight green">갤러리펜션</span>
+              </p>
+              <h2>ABOUT</h2>
+              <div className="seperate-line">∎</div>
             </div>
             <div className="right-about">
-              <p data-aos="zoom-in-up" data-aos-duration="2000">
-                어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+              <p>
+                <span className="highlight blue">양양의 청정계곡</span> 바로 옆에 위치한 최상의 휴양지
               </p>
-              <p data-aos="zoom-in-up" data-aos-duration="2000">
-                어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+              <p>
+                맑은 물소리가 들리는 <span className="highlight brown">개별 테라스 바베큐장</span>에서 만찬
               </p>
-              <p data-aos="zoom-in-up" data-aos-duration="2000">
-                어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
-              </p>
+              <p>계곡 물소리를 들으며 잠드는 밤</p>
+              <p>자연과 함께 즐거운 시간 되십시오</p>
             </div>
           </div>
         </section>
         <section className="way-section">
-          <div data-aos="fade-up" data-aos-duration="2000" className="map-title">
-            <h2>LOCATE US</h2>
+          <div className="map-title">
+            <h2 id="location">LOCATE US</h2>
           </div>
 
           <NaverMaps />
@@ -73,6 +74,7 @@ export default function Home() {
           width: 80%;
           margin: auto;
           padding: 5rem 0;
+          color: #636363;
         }
         .row {
           display: flex;
@@ -83,14 +85,31 @@ export default function Home() {
           display: inline-block;
           width: 50%;
         }
-        .left-about > h5,
+        .left-about > p,
         h2 {
           margin: 0 0 1rem 0;
           text-align: center;
           line-height: 1.5rem;
         }
+        .left-about h2 {
+          color: black;
+        }
+        .highlight {
+          font-size: 1.2rem;
+        }
+        .green {
+          color: #7dd268;
+        }
+        .blue {
+          color: #6494ff;
+        }
+        .brown {
+          color: #9c5959;
+        }
         .right-about {
-          display: inline-block;
+          display: inline-flex;
+          flex-direction: column;
+          gap: 1rem 0;
           width: 50%;
         }
         .right-about p {

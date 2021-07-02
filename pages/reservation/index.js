@@ -1,13 +1,20 @@
 import Container from "../../components/Container";
+import HeadImage from "../../components/layout/HeadImage";
 
 const Info = () => {
+  const headerMenus = [
+    { menu: "이용안내", link: "/reservation", isActive: true },
+    { menu: "실시간예약", link: "/reservation/service" },
+  ];
+
   return (
     <>
+      <HeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />
       <Container>
-        <h2 data-aos="fade-up" data-aos-duration="1500">
-          이용안내
-        </h2>
-        <div data-aos="fade-up" data-aos-duration="1500" className="head-text">
+        <div>
+          <h2>이용안내</h2>
+        </div>
+        <div className="head-text">
           <p>·보호자 동반없는 미성년자는 이용이 불가 합니다.</p>
           <p>·객실, 발코니에서는 절대 금연이며, 불꽃놀이를 금지합니다.</p>
           <p>·펜션 주변 계곡이나 위험장소에서 사진 촬영이나 이용시 특별히 주의 바랍니다.(고객분의 부주의로 인한 안전사고는 펜션에서 책임지지 않습니다)</p>
@@ -17,7 +24,7 @@ const Info = () => {
           <p>·퇴실 시 쓰레기와 음식물 쓰레기는 지정장소에 분리 배출 바라며 사용하신 식기류는 다음 손님을 위해 깨끗하게 세척해 주시기 바랍니다.</p>
           <p>·퇴실 시 열쇠는 꼭 출입문 옆 열쇠함에 넣어주시기 바랍니다. (열쇠를 분실시 2만원 배상하셔야 합니다)</p>
         </div>
-        <div data-aos="fade-up" data-aos-duration="1500" className="info-box-container">
+        <div className="info-box-container">
           <div className="info-box">
             <div>·입금 및 예약확인</div>
             <div>

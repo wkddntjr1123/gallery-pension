@@ -4,8 +4,12 @@ import Header from "../components/layout/Header";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Head from "next/head";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <>
       <Head>
@@ -145,6 +149,7 @@ function MyApp({ Component, pageProps }) {
           vertical-align: baseline;
           box-sizing: border-box;
           text-decoration: none;
+          color:inherit;
         }
         /* HTML5 display-role reset for older browsers */
         article,

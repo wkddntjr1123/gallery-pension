@@ -1,11 +1,17 @@
 import Container from "../../components/Container";
 import SlideTabs from "../../components/SlideTabs";
+import HeadImage from "../../components/layout/HeadImage";
 
 const Reservation = () => {
+  const headerMenus = [
+    { menu: "이용안내", link: "/reservation" },
+    { menu: "실시간예약", link: "/reservation/service", isActive: true },
+  ];
   const tabData = { title: ["예약안내", "실시간예약", "예약확인/취소"], contents: [<Tab1 />, "내용2", <Tab3 />] };
 
   return (
     <>
+      <HeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />
       <Container>
         <SlideTabs {...tabData} />
       </Container>
