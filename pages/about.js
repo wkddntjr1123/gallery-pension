@@ -1,20 +1,10 @@
 import Slider from "../components/about/Slider";
 import NaverMaps from "../components/about/NaverMaps";
-import HeadImage from "../components/layout/HeadImage";
-import { useEffect } from "react";
-export default function Home() {
-  const iconStyleProps = {
-    primaryFill: "purple",
-    className: "iconClass",
-  };
-  const headerMenus = [
-    { menu: "펜션소개", link: "/about" },
-    { menu: "오시는길", link: "/about/#location" },
-  ];
+import Image from "next/image";
 
+export default function Home() {
   return (
     <>
-      <HeadImage src="/test.png" title="ABOUT" menus={headerMenus} />
       <div className="container">
         <Slider />
         <section className="about-section">

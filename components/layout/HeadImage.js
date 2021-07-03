@@ -1,15 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 const HeadImage = ({ src, title, menus }) => {
-  function a() {
-    const element = document.querySelector("#location");
-    const topPos = element.getBoundingClientRect().top + window.pageYOffset;
-    window.scrollTo({
-      top: topPos, // scroll so that the element is at the top of the view
-      behavior: "smooth", // smooth scroll
-    });
-  }
-
   return (
     <>
       <div className="container">

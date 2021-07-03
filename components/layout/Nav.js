@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Mobile from "../Mobile";
 
 const Subnav = ({ data }) => {
   return (
@@ -37,12 +38,17 @@ const Subnav = ({ data }) => {
         .sub-box a:hover {
           color: white;
         }
+        @media screen and (max-width: 820px) {
+          .sub-box {
+            display: none;
+          }
+        }
       `}</style>
     </>
   );
 };
 
-const Nav = () => {
+const Nav = ({ isOpen }) => {
   const menu = [
     { title: "펜션소개", link: "/about" },
     { title: "객실소개", link: "#" },
@@ -93,7 +99,7 @@ const Nav = () => {
 
   return (
     <>
-      <ul>
+      <ul id="menus">
         {menu.map((item, index) => (
           <li key={index} className="nav-item" onMouseOver={(event) => handleDisplay(event, index)} onMouseOut={(event) => handleDisplay(event, index)}>
             <Link href={item.link}>
@@ -132,6 +138,35 @@ const Nav = () => {
           }
           .nav-item a:hover {
             color: #ffaaaa;
+          }
+          @media screen and (max-width: 820px) {
+            ul {
+              width: 100%;
+              background-color: white;
+              height: 0;
+              overflow: hidden;
+              display: block;
+              transition: height 0.7s ease-in-out;
+              border-bottom: ${isOpen ? "1px solid #e5e5e5;" : "none"};
+            }
+            .nav-item {
+              display: block;
+              font-size: 0.9rem;
+              letter-spacing: 0.3rem;
+              height: auto;
+              width: 85%;
+              margin: auto;
+              text-align: center;
+              border-bottom: 1px solid #e5e5e5;
+            }
+            .nav-item:last-child {
+              display: none;
+            }
+            .nav-item a {
+              color: inherit;
+              padding: 0.7rem;
+              text-shadow: none;
+            }
           }
         `}
       </style>
