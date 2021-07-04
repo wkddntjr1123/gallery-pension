@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+
 const HeadImage = ({ src, title, menus }) => {
   return (
     <>
@@ -41,7 +42,7 @@ const HeadImage = ({ src, title, menus }) => {
             transform: translateX(-50%);
           }
           .text-box h1 {
-            color: #eaf4ff;
+            color: white;
             text-shadow: 0 0 5px #000;
             letter-spacing: -0.1rem;
           }
@@ -63,6 +64,24 @@ const HeadImage = ({ src, title, menus }) => {
           .active {
             font-size: 1.1rem;
             background: linear-gradient(0deg, rgb(228 169 3) 0%, rgb(204 140 3 / 74%) 100%);
+          }
+          @media screen and (max-width: 820px) {
+            .text-box h1 {
+              font-size: 2.2rem;
+              margin-bottom: 2rem;
+            }
+            .text-box ul li {
+              border: 1px solid white;
+            }
+            .text-box ul li a {
+              width: 5rem;
+              line-height: 2.2rem;
+              font-size: 0.8rem;
+            }
+
+            .image-box {
+              height: 15rem;
+            }
           }
         `}
       </style>

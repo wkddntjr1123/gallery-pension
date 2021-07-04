@@ -5,16 +5,17 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Head from "next/head";
 import { useEffect } from "react";
-
+import { AppWrapper } from "../libs/mobileContext";
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     AOS.init();
   }, []);
   return (
-    <>
+    <AppWrapper>
       <Head>
         <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5qykfsbn5o"></script>
       </Head>
+
       <div className="container">
         <Header>
           <Nav />
@@ -22,6 +23,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
         <Footer />
       </div>
+
       <style jsx global>{`
         @font-face {
           font-family: "Arita-buri-SemiBold";
@@ -206,7 +208,7 @@ function MyApp({ Component, pageProps }) {
           font-size: 0.67rem;
         }
       `}</style>
-    </>
+    </AppWrapper>
   );
 }
 

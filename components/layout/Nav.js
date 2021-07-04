@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import Mobile from "../Mobile";
+import { useEffect, useState } from "react";
+import { useMobileContext } from "../../libs/mobileContext";
 
 const Subnav = ({ data }) => {
   return (
@@ -40,7 +41,28 @@ const Subnav = ({ data }) => {
         }
         @media screen and (max-width: 820px) {
           .sub-box {
-            display: none;
+            position: static;
+            width: 100%;
+            line-height: 2rem;
+            text-align: start;
+            transform: none;
+            background-color: transparent;
+          }
+          .sub-box li {
+            text-align: start;
+          }
+          .sub-box li:last-child {
+            margin-bottom: 0.8rem;
+          }
+          .sub-box a {
+            color: rgb(134, 134, 134);
+            border-bottom: none;
+            text-align: start;
+            line-height: 1.8rem;
+          }
+          .sub-box a::before {
+            content: "-";
+            margin-left: 5%;
           }
         }
       `}</style>
@@ -49,6 +71,9 @@ const Subnav = ({ data }) => {
 };
 
 const Nav = ({ isOpen }) => {
+  const isMobile = useMobileContext();
+  const [isSubOpen, setIsSubOpen] = useState([false, false, false, false, false, false]);
+
   const menu = [
     { title: "펜션소개", link: "/about" },
     { title: "객실소개", link: "#" },
@@ -57,6 +82,7 @@ const Nav = ({ isOpen }) => {
     { title: "예약", link: "/reservation" },
     { title: "커뮤니티", link: "#" },
   ];
+
   const subData = {
     menu1: [
       { title: "펜션소개", link: "/about" },
@@ -89,31 +115,87 @@ const Nav = ({ isOpen }) => {
   };
 
   const handleDisplay = (event, index) => {
-    const selected = document.getElementsByClassName("sub-box")[index];
-    if (event.type === "mouseover") {
-      selected.style.maxHeight = "15rem";
-    } else {
-      selected.style.maxHeight = "0";
+    if (!isMobile) {
+      const selected = document.getElementsByClassName("sub-box")[index];
+      if (event.type === "mouseover") {
+        selected.style.maxHeight = "15rem";
+      } else {
+        selected.style.maxHeight = "0";
+      }
     }
   };
-
+  const handelSubDisplay = (index) => {
+    const tempSub = [...isSubOpen];
+    //1.배열에 true있는지 검사
+    const trueIdx = tempSub.indexOf(true);
+    //2-1.없으면 그냥 누른거 바로 열기 tempSub[index]
+    if (trueIdx === -1) {
+      tempSub[index] = true;
+      setIsSubOpen(tempSub);
+      //2.2 있으면
+    } else {
+      //2-2-1.누른게 이미 열린 인덱스면 닫기
+      if (index === trueIdx) {
+        tempSub[index] = false;
+        setIsSubOpen(tempSub);
+      } //2-2-2. 누른게 다른 인덱스면 기존거 닫고 새로운 거 열기
+      else {
+        tempSub[trueIdx] = false;
+        tempSub[index] = true;
+        setIsSubOpen(tempSub);
+      }
+    }
+  };
+  //3. isSubOpen의 state상태에 따라 sub메뉴들 보여주기
+  useEffect(() => {
+    if (!isMobile) {
+      return false;
+    }
+    const subBoxes = document.getElementsByClassName("sub-box");
+    const icons = document.getElementsByClassName("mb-sub-icon");
+    for (let i = 0; i < isSubOpen.length; i++) {
+      if (isSubOpen[i]) {
+        subBoxes[i].style.maxHeight = "20rem";
+        icons[i].textContent = "-";
+      } else {
+        subBoxes[i].style.maxHeight = "0";
+        icons[i].textContent = "+";
+      }
+    }
+  }, [isSubOpen]);
   return (
     <>
-      <ul id="menus">
-        {menu.map((item, index) => (
-          <li key={index} className="nav-item" onMouseOver={(event) => handleDisplay(event, index)} onMouseOut={(event) => handleDisplay(event, index)}>
-            <Link href={item.link}>
-              <a>{item.title}</a>
-            </Link>
-            <Subnav data={subData[`menu${index + 1}`]} />
-          </li>
-        ))}
-        <li className="nav-item">
-          <a href="https://band.us/n/a4ad53e274s4K" target="_blank">
-            <Image src="/icons/band.png" width={40} height={40}></Image>
-          </a>
-        </li>
-      </ul>
+      <div>
+        <ul id="menus">
+          {menu.map((item, index) => (
+            <li key={index} className="nav-item" onMouseOver={(event) => handleDisplay(event, index)} onMouseOut={(event) => handleDisplay(event, index)}>
+              {isMobile ? (
+                <>
+                  <div onClick={() => handelSubDisplay(index)}>
+                    {item.title} <span className="mb-sub-icon">+</span>
+                  </div>
+                  <Subnav data={subData[`menu${index + 1}`]} />
+                </>
+              ) : (
+                <>
+                  <Link href={item.link}>
+                    <a>{item.title}</a>
+                  </Link>
+
+                  <Subnav data={subData[`menu${index + 1}`]} />
+                </>
+              )}
+            </li>
+          ))}
+          {!isMobile && (
+            <li className="nav-item">
+              <a href="https://band.us/n/a4ad53e274s4K" target="_blank">
+                <Image src="/icons/band.png" width={40} height={40}></Image>
+              </a>
+            </li>
+          )}
+        </ul>
+      </div>
       <style jsx>
         {`
           ul {
@@ -123,14 +205,16 @@ const Nav = ({ isOpen }) => {
           }
           .nav-item {
             display: inline-block;
-            position: relative;
             font-size: 1.1rem;
+            position: relative;
             height: 100%;
             display: flex;
             align-items: center;
           }
           .nav-item a {
-            display: block;
+            display: inline-block;
+            width: 100%;
+            position: relative;
             color: inherit;
             padding: 1.5rem;
             text-shadow: 1px 1px 2px rgb(0 0 0 / 50%);
@@ -139,6 +223,7 @@ const Nav = ({ isOpen }) => {
           .nav-item a:hover {
             color: #ffaaaa;
           }
+
           @media screen and (max-width: 820px) {
             ul {
               width: 100%;
@@ -146,26 +231,39 @@ const Nav = ({ isOpen }) => {
               height: 0;
               overflow: hidden;
               display: block;
-              transition: height 0.7s ease-in-out;
-              border-bottom: ${isOpen ? "1px solid #e5e5e5;" : "none"};
+              transition: height 0.8s ease;
+              box-shadow: 1px 1px black;
+              border-bottom: ${isOpen ? "2px solid #e8e8e8;" : "none"};
+              border-collapse: collapse;
             }
             .nav-item {
               display: block;
+              position: relative;
               font-size: 0.9rem;
               letter-spacing: 0.3rem;
               height: auto;
               width: 85%;
               margin: auto;
-              text-align: center;
               border-bottom: 1px solid #e5e5e5;
             }
             .nav-item:last-child {
-              display: none;
+              border-bottom: none !important;
             }
-            .nav-item a {
+            .mb-sub-icon {
+              display: block;
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              right: -5px;
+              color: #909090;
+              font-size: 1rem;
+            }
+
+            .nav-item div {
               color: inherit;
               padding: 0.7rem;
               text-shadow: none;
+              position: relative;
             }
           }
         `}

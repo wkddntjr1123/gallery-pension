@@ -7,11 +7,6 @@ const NaverMaps = () => {
     const options = {
       center: new naver.maps.LatLng(37.948642161999715, 128.6220314407252),
       zoom: 18,
-      scaleControl: false,
-      logoControl: false,
-      mapDataControl: false,
-      zoomControl: true,
-      minZoom: 6,
     };
     const map = new naver.maps.Map("map", options);
 
@@ -45,6 +40,11 @@ const NaverMaps = () => {
             margin: auto;
             height: 540px;
             box-shadow: 0px 0px 3px 1px #d0d0d0;
+          }
+          @media screen and (max-width: 820px) {
+            #map {
+              height: 250px;
+            }
           }
         `}
       </style>

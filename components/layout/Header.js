@@ -1,35 +1,27 @@
 import { useEffect, useState } from "react";
-import Mobile from "../Mobile";
 import Nav from "./Nav";
 import Router from "next/router";
 
+import { useMobileContext } from "../../libs/mobileContext";
 const Header = ({ children }) => {
   const [isTop, setIsTop] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  //라우터이동 이벤트 시 nav닫기
-  Router.events.on("routeChangeStart", (url) => {
-    setIsOpen(false);
-    document.getElementById("menus").style.height = "0px";
-  });
+  const isMobile = useMobileContext();
 
-  useEffect(() => {
-    document.addEventListener("scroll", () => {
-      let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScrollTop === 0) {
-        setIsTop(true);
-      } else {
-        setIsTop(false);
-      }
+  //모바일 : 라우터이동 이벤트 시 nav닫기
+  if (isMobile) {
+    Router.events.on("routeChangeStart", (url) => {
+      setIsOpen(false);
+      document.getElementById("menus").style.height = "0px";
     });
-  }, []);
-  //**height auto에 transition 주기**//
+  }
+  //모바일 : **height auto에 transition 주기**//
   useEffect(() => {
-    if (!document.getElementById("hamburger")) {
+    if (!isMobile) {
       return false;
     }
     window.toggleExpand = function (element) {
       if (!element.style.height || element.style.height == "0px") {
-        setIsOpen(true);
         element.style.height =
           Array.prototype.reduce.call(
             element.childNodes,
@@ -39,7 +31,6 @@ const Header = ({ children }) => {
             0,
           ) + "px";
       } else {
-        setIsOpen(false);
         element.style.height =
           Array.prototype.reduce.call(
             element.childNodes,
@@ -54,6 +45,10 @@ const Header = ({ children }) => {
       }
     };
     document.getElementById("hamburger").addEventListener("click", () => {
+      document.getElementById("header").style.height = "";
+      if (parseInt(window.getComputedStyle(document.getElementById("header")).height) > 100) {
+        document.getElementById("header").style.height = window.getComputedStyle(document.getElementById("header")).height;
+      }
       toggleExpand(document.getElementById("menus"));
     });
     document.getElementById("menus").addEventListener("transitionend", (event) => {
@@ -63,17 +58,30 @@ const Header = ({ children }) => {
     });
   }, []);
 
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScrollTop === 0) {
+        setIsTop(true);
+      } else {
+        setIsTop(false);
+      }
+    });
+  }, []);
+  const onClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <header id="header" className="header">
-        <Mobile>
-          <div className="mb-header">
-            <div className="mb-logo">갤러리펜션</div>
-            <div id="hamburger" className="mb-bar">
-              ☰
-            </div>
+        <div className="mb-header">
+          <div className="mb-logo">갤러리펜션</div>
+          <div id="hamburger" className="mb-bar" onClick={onClick}>
+            ☰
           </div>
-        </Mobile>
+        </div>
+
         <Nav isOpen={isOpen} />
       </header>
       <style jsx>
@@ -98,19 +106,28 @@ const Header = ({ children }) => {
             font-weight: bold;
             letter-spacing: 0.2rem;
           }
+          .mb-header {
+            display: none;
+          }
           @media screen and (max-width: 820px) {
             .header {
               display: block;
-              height: 3.1rem;
               background-color: white;
               color: inherit;
+              height: ${isOpen ? "auto" : "3.1rem !important"};
+              background-color: white !important;
+              color: #292929 !important;
+              overflow: ${isOpen ? "scroll" : "hidden"};
+              z-index: 100 !important;
+              transition: height 0.8s ease;
             }
             .mb-header {
               display: flex;
               width: 100%;
-              height: 100%;
+              height: 3.5rem;
               position: relative;
               justify-content: center;
+              z-index: 10000;
             }
             .mb-logo {
               margin: auto;
