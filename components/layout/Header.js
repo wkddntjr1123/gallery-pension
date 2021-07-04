@@ -114,7 +114,7 @@ const Header = ({ children }) => {
               display: block;
               background-color: white;
               color: inherit;
-              height: ${isOpen ? "auto" : "3.1rem !important"};
+              height: ${isOpen ? "auto" : "3rem !important"};
               background-color: white !important;
               color: #292929 !important;
               overflow: ${isOpen ? "scroll" : "hidden"};
@@ -124,10 +124,9 @@ const Header = ({ children }) => {
             .mb-header {
               display: flex;
               width: 100%;
-              height: 3.5rem;
+              height: 3rem;
               position: relative;
               justify-content: center;
-              z-index: 10000;
             }
             .mb-logo {
               margin: auto;

@@ -54,6 +54,7 @@ const Subnav = ({ data }) => {
           .sub-box li:last-child {
             margin-bottom: 0.8rem;
           }
+
           .sub-box a {
             color: rgb(134, 134, 134);
             border-bottom: none;
@@ -153,9 +154,21 @@ const Nav = ({ isOpen }) => {
     }
     const subBoxes = document.getElementsByClassName("sub-box");
     const icons = document.getElementsByClassName("mb-sub-icon");
+
     for (let i = 0; i < isSubOpen.length; i++) {
+      let box_max_height =
+        Array.prototype.reduce.call(
+          subBoxes[i].childNodes,
+          function (p, c) {
+            return p + (c.offsetHeight || 0);
+          },
+          0,
+        ) +
+        13 +
+        "px";
+
       if (isSubOpen[i]) {
-        subBoxes[i].style.maxHeight = "20rem";
+        subBoxes[i].style.maxHeight = box_max_height;
         icons[i].textContent = "-";
       } else {
         subBoxes[i].style.maxHeight = "0";
@@ -227,13 +240,12 @@ const Nav = ({ isOpen }) => {
           @media screen and (max-width: 820px) {
             ul {
               width: 100%;
-              background-color: white;
+              background: #fbfbfb;
               height: 0;
               overflow: hidden;
               display: block;
               transition: height 0.8s ease;
               box-shadow: 1px 1px black;
-              border-bottom: ${isOpen ? "2px solid #e8e8e8;" : "none"};
               border-collapse: collapse;
             }
             .nav-item {
