@@ -153,18 +153,19 @@ const Footer = () => {
             .footer-info li {
               display: flex;
               flex-direction: row;
-              justify-content: space-between;
+              justify-content: center;
+              gap: 10%;
             }
             .footer-info li div {
               display: inline-block;
-              width: 68%;
               font-size: 0.8rem;
               color: rgb(226, 226, 226);
               font-weight: 100;
+              width: 12rem;
+              //text-align: center;
             }
             svg {
               display: inline-block;
-              width: 33%;
               height: 25px;
             }
             .mb-menu {

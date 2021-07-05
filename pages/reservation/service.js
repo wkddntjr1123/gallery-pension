@@ -1,4 +1,3 @@
-import Container from "../../components/Container";
 import SlideTabs from "../../components/SlideTabs";
 import HeadImage from "../../components/layout/HeadImage";
 
@@ -12,9 +11,9 @@ const Reservation = () => {
   return (
     <>
       <HeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />
-      <Container>
+      <section className="gridContainer">
         <SlideTabs {...tabData} />
-      </Container>
+      </section>
     </>
   );
 };
@@ -44,58 +43,58 @@ const Tab1 = () => {
           </thead>
           <tbody>
             <tr>
-              <td>A101호</td>
+              <td>A101</td>
               <td>x평</td>
               <td>4</td>
               <td>6</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
+              <td>200,000</td>
+              <td>200,000</td>
+              <td>200,000</td>
             </tr>
             <tr>
-              <td>A102호</td>
+              <td>A102</td>
               <td>x평</td>
               <td>4</td>
               <td>6</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
+              <td>200,000</td>
+              <td>200,000</td>
+              <td>200,000</td>
             </tr>
             <tr>
-              <td>A103호</td>
+              <td>A103</td>
               <td>x평</td>
               <td>4</td>
               <td>6</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
+              <td>200,000</td>
+              <td>200,000</td>
+              <td>200,000</td>
             </tr>
             <tr>
-              <td>B201호</td>
+              <td>B201</td>
               <td>x평</td>
               <td>4</td>
               <td>6</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
+              <td>200,000</td>
+              <td>200,000</td>
+              <td>200,000</td>
             </tr>
             <tr>
-              <td>B202호</td>
+              <td>B202</td>
               <td>x평</td>
               <td>4</td>
               <td>6</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
+              <td>200,000</td>
+              <td>200,000</td>
+              <td>200,000</td>
             </tr>
             <tr>
-              <td>B203호</td>
+              <td>B203</td>
               <td>x평</td>
               <td>4</td>
               <td>6</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
-              <td>200,000원</td>
+              <td>200,000</td>
+              <td>200,000</td>
+              <td>200,000</td>
             </tr>
           </tbody>
         </table>
@@ -247,6 +246,18 @@ const Tab1 = () => {
           table.fee tbody tr:nth-child(2n),
           table.room tbody tr:nth-child(2n) {
             background-color: #f3f3f3;
+          }
+          @media screen and (max-width: 820px) {
+            table.room {
+              font-size: 0.9rem;
+            }
+            table.room thead tr th {
+              padding: 0.6rem 0.1rem;
+            }
+            table.room tbody tr td {
+              padding: 0.7rem 0.1rem;
+              vertical-align: middle;
+            }
           }
         `}
       </style>

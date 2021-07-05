@@ -1,4 +1,3 @@
-import Container from "../../components/Container";
 import HeadImage from "../../components/layout/HeadImage";
 
 const Info = () => {
@@ -10,7 +9,7 @@ const Info = () => {
   return (
     <>
       <HeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />
-      <Container>
+      <section className="container">
         <div>
           <h2>이용안내</h2>
         </div>
@@ -24,7 +23,7 @@ const Info = () => {
           <p>·퇴실 시 쓰레기와 음식물 쓰레기는 지정장소에 분리 배출 바라며 사용하신 식기류는 다음 손님을 위해 깨끗하게 세척해 주시기 바랍니다.</p>
           <p>·퇴실 시 열쇠는 꼭 출입문 옆 열쇠함에 넣어주시기 바랍니다. (열쇠를 분실시 2만원 배상하셔야 합니다)</p>
         </div>
-        <div className="info-box-container">
+        <div className="info-box-div">
           <div className="info-box">
             <div>·입금 및 예약확인</div>
             <div>
@@ -74,14 +73,20 @@ const Info = () => {
             </div>
           </div>
         </div>
-      </Container>
+      </section>
       <style jsx>{`
+        .container {
+          max-width: 1240px;
+          margin: auto;
+          padding: 0 5%;
+          font-size: 95%;
+        }
         h2 {
           text-align: center;
           color: #8a4600;
         }
         .head-text {
-          margin: 3rem 0 4rem 0;
+          margin: 3rem 0 2rem 0;
         }
         .head-text p {
           line-height: 2rem;
@@ -92,6 +97,7 @@ const Info = () => {
           flex-wrap: wrap;
           align-items: center;
           border-top: 1px solid rgb(212, 212, 212);
+          gap: 13%;
         }
         .info-box:last-child {
           border-bottom: 1px solid rgb(212, 212, 212);
@@ -107,13 +113,55 @@ const Info = () => {
         }
         .info-box div:last-child {
           display: inline-block;
-          width: 83%;
         }
         .info-box div:last-child p {
           line-height: 1.8rem;
         }
         .color-red {
           color: #ff500d;
+        }
+        @media screen and (max-width: 1000px) {
+          .info-box {
+            gap: 2%;
+          }
+        }
+        @media screen and (max-width: 820px) {
+          .container {
+            padding: 0 0.5rem;
+          }
+          .head-text {
+            margin-top: 0;
+            font-size: 0.9rem;
+          }
+          .head-text p {
+            font-family: "Noto Sans CJK KR";
+            line-height: 1.3rem;
+            padding: 0.4rem 0;
+          }
+          .info-box {
+            display: block;
+          }
+          .info-box div {
+            padding: 0 0;
+          }
+          .info-box div:first-child {
+            width: 100%;
+            font-size: 1.3rem;
+            padding: 1rem 0 0.7rem 0;
+          }
+          .info-box div:last-child {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+          }
+          .info-box div:last-child p {
+            font-family: "Noto Sans CJK KR";
+            padding: 0.3rem 0 0.3rem 0.3rem;
+            line-height: 1.3rem;
+          }
+          .info-box div:last-child p::before {
+            content: "- ";
+            color: #7e7e7e;
+          }
         }
       `}</style>
     </>
