@@ -1,6 +1,7 @@
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
+import MobileBar from "../components/layout/MobileBar";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Head from "next/head";
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
         <Footer />
       </div>
+      <MobileBar />
 
       <style jsx global>{`
         @font-face {

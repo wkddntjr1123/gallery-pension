@@ -8,7 +8,7 @@ const Header = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useMobileContext();
 
-  //모바일 : 라우터이동 이벤트 시 nav닫기
+  //모바일 : 라우터이동 이벤트 시 nav닫기 => isOpen이 false가 되고, isOpen이 false가 되면 isSubOpen도 모두 false가 됌
   if (isMobile) {
     Router.events.on("routeChangeStart", (url) => {
       setIsOpen(false);
@@ -96,7 +96,7 @@ const Header = ({ children }) => {
             height: ${isTop ? "6rem" : "4rem"};
             background-color: ${isTop ? "transparent" : "white"};
             color: ${isTop ? "#e4f0ff;" : "#292929"};
-            transition: color ease-in-out 0.3s, height ease-in-out 0.5s, background-color ease-in-out 0.5s;
+            transition: color ease-in-out 0.3s, height ease-in-out 0.4s, background-color ease-in-out 0.5s;
             z-index: 100;
           }
           li {
@@ -114,17 +114,18 @@ const Header = ({ children }) => {
               display: block;
               background-color: white;
               color: inherit;
-              height: ${isOpen ? "auto" : "3rem !important"};
+              height: ${isOpen ? "auto" : "3.5rem !important"};
               background-color: white !important;
               color: #292929 !important;
               overflow: ${isOpen ? "scroll" : "hidden"};
               z-index: 100 !important;
-              transition: height 0.8s ease;
+              transition: height 0.2s ease;
+              box-shadow: rgb(230 230 230) 0px 1px 3px;
             }
             .mb-header {
               display: flex;
               width: 100%;
-              height: 3rem;
+              height: 3.5rem;
               position: relative;
               justify-content: center;
             }

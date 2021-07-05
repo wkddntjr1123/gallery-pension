@@ -23,7 +23,7 @@ const Subnav = ({ data }) => {
           width: 11rem;
           transform: translateX(-50%);
           left: 50%;
-          transition: max-height ease 0.5s;
+          transition: max-height ease 0.4s;
           background-color: rgba(34, 34, 34, 0.7);
           top: 4rem;
         }
@@ -47,6 +47,7 @@ const Subnav = ({ data }) => {
             text-align: start;
             transform: none;
             background-color: transparent;
+            transition: max-height ease 0.2s;
           }
           .sub-box li {
             text-align: start;
@@ -59,7 +60,8 @@ const Subnav = ({ data }) => {
             color: rgb(134, 134, 134);
             border-bottom: none;
             text-align: start;
-            line-height: 1.8rem;
+            line-height: 2.2rem;
+            font-size: 0.9rem;
           }
           .sub-box a::before {
             content: "-";
@@ -74,6 +76,12 @@ const Subnav = ({ data }) => {
 const Nav = ({ isOpen }) => {
   const isMobile = useMobileContext();
   const [isSubOpen, setIsSubOpen] = useState([false, false, false, false, false, false]);
+  //모바일 : isOpen이 false가 되면 subBox모두 닫기
+  useEffect(() => {
+    if (!isOpen) {
+      setIsSubOpen([false, false, false, false, false, false]);
+    }
+  }, [isOpen]);
 
   const menu = [
     { title: "펜션소개", link: "/about" },
@@ -244,14 +252,14 @@ const Nav = ({ isOpen }) => {
               height: 0;
               overflow: hidden;
               display: block;
-              transition: height 0.8s ease;
+              transition: height 0.2s ease;
               box-shadow: 1px 1px black;
               border-collapse: collapse;
             }
             .nav-item {
               display: block;
               position: relative;
-              font-size: 0.9rem;
+              font-size: 1.1rem;
               letter-spacing: 0.3rem;
               height: auto;
               width: 85%;
