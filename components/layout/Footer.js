@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useMobileContext } from "../../libs/mobileContext";
+import { useAppContext } from "../../libs/Context";
 
 const Footer = () => {
   const menu = [
@@ -10,7 +10,7 @@ const Footer = () => {
   ];
   const svgColor = "#d6d1cb";
 
-  const isMobile = useMobileContext();
+  const { isMobile } = useAppContext();
 
   return (
     <>

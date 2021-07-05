@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import Nav from "./Nav";
 import Router from "next/router";
+import { useAppContext } from "../../libs/Context";
 
-import { useMobileContext } from "../../libs/mobileContext";
 const Header = ({ children }) => {
-  const [isTop, setIsTop] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useMobileContext();
+  const { isMobile, isTop } = useAppContext();
 
   //모바일 : 라우터이동 이벤트 시 nav닫기 => isOpen이 false가 되고, isOpen이 false가 되면 isSubOpen도 모두 false가 됌
   if (isMobile) {
@@ -15,6 +14,7 @@ const Header = ({ children }) => {
       document.getElementById("menus").style.height = "0px";
     });
   }
+
   //모바일 : **height auto에 transition 주기**//
   useEffect(() => {
     if (!isMobile) {
@@ -58,16 +58,7 @@ const Header = ({ children }) => {
     });
   }, []);
 
-  useEffect(() => {
-    document.addEventListener("scroll", () => {
-      let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScrollTop === 0) {
-        setIsTop(true);
-      } else {
-        setIsTop(false);
-      }
-    });
-  }, []);
+  //모바일 햄버거 클릭 이벤트
   const onClick = () => {
     setIsOpen(!isOpen);
   };

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useMobileContext } from "../../libs/mobileContext";
+import { useAppContext } from "../../libs/Context";
 
 const Subnav = ({ data }) => {
   return (
@@ -74,7 +74,7 @@ const Subnav = ({ data }) => {
 };
 
 const Nav = ({ isOpen }) => {
-  const isMobile = useMobileContext();
+  const { isMobile } = useAppContext();
   const [isSubOpen, setIsSubOpen] = useState([false, false, false, false, false, false]);
   //모바일 : isOpen이 false가 되면 subBox모두 닫기
   useEffect(() => {
@@ -260,6 +260,7 @@ const Nav = ({ isOpen }) => {
               display: block;
               position: relative;
               font-size: 1.1rem;
+              font-weight: 400;
               letter-spacing: 0.3rem;
               height: auto;
               width: 85%;

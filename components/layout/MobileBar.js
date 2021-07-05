@@ -1,8 +1,9 @@
-import { useMobileContext } from "../../libs/mobileContext";
+import { useAppContext } from "../../libs/Context";
 import Link from "next/link";
 import { useEffect } from "react";
 const MobileBar = () => {
-  const isMobile = useMobileContext();
+  const { isMobile, isTop } = useAppContext();
+
   useEffect(() => {
     if (!isMobile) {
       return false;
@@ -29,7 +30,7 @@ const MobileBar = () => {
           </Link>
           <Link href="#">
             <a onClick={goTop}>
-              <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="22px" viewBox="0 0 24 24" width="22px" fill="#000000">
+              <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="22px" viewBox="0 0 24 24" width="22px" fill="white">
                 <rect fill="none" height="24" width="24" />
                 <path d="M5,9l1.41,1.41L11,5.83V22H13V5.83l4.59,4.59L19,9l-7-7L5,9z" />
               </svg>
@@ -51,13 +52,16 @@ const MobileBar = () => {
           bottom: 0;
           box-shadow: 0.5px 0.9px 5px 0 rgb(36 36 36 / 20%);
           border: solid 1px #c6c6c6;
-          transition: bottom 0.3s;
+          transition: bottom 0.5s;
         }
         a:nth-child(2) {
-          bottom: 4.2rem;
+          bottom: ${isTop ? "0.6rem" : "3.6rem;"};
         }
         a:nth-child(3) {
-          bottom: 1rem;
+          visibility: ${isTop ? "hidden" : "visible"};
+          bottom: ${isTop ? "0" : "0.6rem"};
+          background-color: #4c4b4a;
+          border: solid 1px #808080;
         }
       `}</style>
     </>

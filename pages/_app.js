@@ -6,7 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Head from "next/head";
 import { useEffect } from "react";
-import { AppWrapper } from "../libs/mobileContext";
+import { AppWrapper } from "../libs/Context";
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     AOS.init();
