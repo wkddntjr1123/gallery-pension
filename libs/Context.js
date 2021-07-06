@@ -25,7 +25,18 @@ export function AppWrapper({ children }) {
     return () => document.removeEventListener("scroll", scrollEvent);
   }, []);
 
-  return <AppContext.Provider value={{ isMobile: isMobile, isTop }}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={{ isMobile: isMobile, isTop }}>
+      {children}
+      {isMobile && (
+        <style jsx global>{`
+          .main {
+            margin-top: 3.5rem;
+          }
+        `}</style>
+      )}
+    </AppContext.Provider>
+  );
 }
 
 export function useAppContext() {

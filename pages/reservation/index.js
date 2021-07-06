@@ -1,6 +1,9 @@
 import HeadImage from "../../components/layout/HeadImage";
+import { useAppContext } from "../../libs/Context";
 
 const Info = () => {
+  const { isMobile } = useAppContext();
+
   const headerMenus = [
     { menu: "이용안내", link: "/reservation", isActive: true },
     { menu: "실시간예약", link: "/reservation/service" },
@@ -8,7 +11,7 @@ const Info = () => {
 
   return (
     <>
-      <HeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />
+      {isMobile ? <></> : <HeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />}
       <section className="container">
         <div>
           <h2>이용안내</h2>
@@ -155,7 +158,7 @@ const Info = () => {
           }
           .info-box div:last-child p {
             font-family: "Noto Sans CJK KR";
-            padding: 0.3rem 0 0.3rem 0.3rem;
+            padding: 0.3rem 0 0.3rem 1rem;
             line-height: 1.3rem;
           }
           .info-box div:last-child p::before {

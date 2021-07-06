@@ -7,6 +7,8 @@ import "aos/dist/aos.css";
 import Head from "next/head";
 import { useEffect } from "react";
 import { AppWrapper } from "../libs/Context";
+import { useMediaQuery } from "react-responsive";
+
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     AOS.init();
@@ -16,16 +18,14 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5qykfsbn5o"></script>
       </Head>
-
-      <div className="container">
-        <Header>
-          <Nav />
-        </Header>
+      <Header>
+        <Nav />
+      </Header>
+      <main className="main">
         <Component {...pageProps} />
-        <Footer />
-      </div>
+      </main>
+      <Footer />
       <MobileBar />
-
       <style jsx global>{`
         @font-face {
           font-family: "Arita-buri-SemiBold";
@@ -69,6 +69,7 @@ function MyApp({ Component, pageProps }) {
         html,body{
           font-family: "Arita-buri-SemiBold", "Noto Sans CJK KR", sans-serif;
         }
+        
         html,
         body,
         div,
@@ -155,6 +156,7 @@ function MyApp({ Component, pageProps }) {
           text-decoration: none;
           color:inherit;
         }
+
         /* HTML5 display-role reset for older browsers */
         article,
         aside,

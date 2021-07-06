@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useAppContext } from "../../libs/Context";
 
-const HeadImage = ({ src, title, menus }) => {
+const Desktop = ({ src, title, menus }) => {
   return (
     <>
       <div className="container">
@@ -65,28 +66,19 @@ const HeadImage = ({ src, title, menus }) => {
             font-size: 1.1rem;
             background: linear-gradient(0deg, rgb(228 169 3) 0%, rgb(204 140 3 / 74%) 100%);
           }
-          @media screen and (max-width: 820px) {
-            .text-box h1 {
-              font-size: 2.2rem;
-              margin-bottom: 2rem;
-            }
-            .text-box ul li {
-              border: 1px solid white;
-            }
-            .text-box ul li a {
-              width: 5rem;
-              line-height: 2.2rem;
-              font-size: 0.8rem;
-            }
-
-            .image-box {
-              height: 15rem;
-            }
-          }
         `}
       </style>
     </>
   );
+};
+
+const Mobile = () => {
+  return <></>;
+};
+const HeadImage = ({ src, title, menus }) => {
+  const { isMobile } = useAppContext();
+
+  return isMobile ? <></> : <Desktop src={src} title={title} menus={menus} />;
 };
 
 export default HeadImage;
