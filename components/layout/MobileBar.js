@@ -1,7 +1,8 @@
 import { useAppContext } from "../../libs/Context";
 import Link from "next/link";
 import { useEffect } from "react";
-const MobileBar = () => {
+
+export default function MobileBar() {
   const { isMobile, isTop } = useAppContext();
 
   useEffect(() => {
@@ -65,6 +66,4 @@ const MobileBar = () => {
       `}</style>
     </>
   );
-};
-
-export default MobileBar;
+}

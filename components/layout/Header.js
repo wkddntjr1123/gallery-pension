@@ -3,7 +3,7 @@ import Nav from "./Nav";
 import Router from "next/router";
 import { useAppContext } from "../../libs/Context";
 
-const Header = ({ children }) => {
+export default function Header({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile, isTop } = useAppContext();
 
@@ -88,7 +88,7 @@ const Header = ({ children }) => {
             background-color: ${isTop ? "transparent" : "white"};
             color: ${isTop ? "#e4f0ff;" : "#292929"};
             transition: color ease-in-out 0.3s, height ease-in-out 0.4s, background-color ease-in-out 0.5s;
-            z-index: 100;
+            z-index: 101 !important;
           }
           li {
             list-style: none;
@@ -109,7 +109,7 @@ const Header = ({ children }) => {
               background-color: white !important;
               color: #292929 !important;
               overflow: ${isOpen ? "scroll" : "hidden"};
-              z-index: 100 !important;
+              z-index: 101 !important;
               transition: height 0.2s ease;
               box-shadow: rgb(230 230 230) 0px 1px 3px;
             }
@@ -135,6 +135,4 @@ const Header = ({ children }) => {
       </style>
     </>
   );
-};
-
-export default Header;
+}

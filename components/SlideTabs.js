@@ -6,8 +6,14 @@ import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
 import { NoSsr } from "@material-ui/core";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-const SlideTabs = ({ title, contents }) => {
+SlideTabs.propTypes = {
+  title: PropTypes.array,
+  contents: PropTypes.array,
+};
+
+export default function SlideTabs({ title, contents }) {
   const styles = { Appber: { backgroundColor: "white", boxShadow: "none", borderBottom: "1px solid rgb(179 179 179)" }, TabPanel: { width: "100%" } };
   const [value, setValue] = useState("1");
   const handleChange = (event, newValue) => {
@@ -44,6 +50,4 @@ const SlideTabs = ({ title, contents }) => {
       </NoSsr>
     </div>
   );
-};
-
-export default SlideTabs;
+}

@@ -1,27 +1,45 @@
+import HeadImage from "../../components/layout/HeadImage";
 import SlideTabs from "../../components/SlideTabs";
-import PcHeadImage from "../../components/layout/PcHeadImage";
 
-const Reservation = () => {
-  const headerMenus = [
-    { menu: "이용안내", link: "/reservation" },
-    { menu: "실시간예약", link: "/reservation/service", isActive: true },
-  ];
+export default function Reservation() {
+  const mobileData = {
+    title: "실시간예약", //string
+    src: ["/pictures/view1.jpeg", "/pictures/view1.jpeg"], //array
+  };
+  const pcData = {
+    title: "RESERVATION", //string
+    src: "/test.png", //string
+    menus: [
+      //array
+      { menu: "이용안내", link: "/reservation" },
+      { menu: "실시간예약", link: "/reservation/service", isActive: true },
+    ],
+    subtitle: "실시간예약", //string
+  };
+
   const tabData = { title: ["예약안내", "실시간예약", "예약확인/취소"], contents: [<Tab1 />, "내용2", <Tab3 />] };
 
   return (
     <>
-      <PcHeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />
-      <section className="gridContainer">
+      <HeadImage mobileData={mobileData} pcData={pcData} />
+      <section>
         <SlideTabs {...tabData} />
       </section>
+      <style jsx>{`
+        section {
+          max-width: 1240px;
+          margin: auto;
+          padding: 0 3rem;
+        }
+      `}</style>
     </>
   );
-};
+}
 
 const Tab1 = () => {
   return (
     <>
-      <div data-aos="fade-up" data-aos-duration="1500">
+      <div>
         <h4>
           <span>01.</span> 객실안내
         </h4>
@@ -296,25 +314,30 @@ const Tab3 = () => {
       </div>
       <style jsx>{`
         .container {
-          width: 50%;
-          min-width: 500px;
+          width: 500px;
+          margin: 4rem auto 6rem auto;
           padding: 5rem;
-          margin: 2.5rem auto 0 auto;
           box-shadow: 0px 0px 6px 1px #c7c7c7;
           font-family: "Noto Sans CJK KR";
+          font-size: 1rem;
         }
         label {
           display: block;
           margin: 0 0 0.5rem 0.3rem;
-          color: #797979;
+          color: #525252;
+        }
+        .name {
+          margin-bottom: 2rem;
+        }
+        .phone {
+          margin-bottom: 3rem;
         }
         .name input {
           width: 100%;
-          height: 3.5rem;
+          height: 3rem;
           display: block;
           border: 1px solid #c3c3c3;
           border-radius: 5px;
-          margin-bottom: 2.5rem;
           text-align: center;
           color: #8b8b8b;
           font-family: inherit;
@@ -331,7 +354,7 @@ const Tab3 = () => {
         .phone input {
           display: block;
           width: 100%;
-          height: 3.5rem;
+          height: 3rem;
           border: 1px solid #c3c3c3;
           border-radius: 5px;
           text-align: center;
@@ -352,15 +375,14 @@ const Tab3 = () => {
         button {
           display: block;
           width: 100%;
-          height: 3.5rem;
+          height: 3rem;
           color: white;
           background-color: #e2573c;
           box-shadow: 0px 0px 8px 0px #dcdcdc;
           border: none;
           cursor: pointer;
           border-radius: 5px;
-          font-size: 1.3rem;
-          margin-top: 2.5rem;
+          font-size: 1.1rem;
           font-family: inherit;
           transition: background-color 0.5s ease;
         }
@@ -371,4 +393,3 @@ const Tab3 = () => {
     </>
   );
 };
-export default Reservation;

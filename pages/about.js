@@ -1,17 +1,11 @@
-import Slider from "../components/Slider";
-import NaverMaps from "../components/about/NaverMaps";
-import { useAppContext } from "../libs/Context";
+import NaverMaps from "../components/NaverMaps";
 
 export default function Home() {
-  const { isMobile } = useAppContext();
-  const src = ["/pictures/view1.jpeg", "/pictures/view2.jpeg", "/pictures/view3.jpeg", "/pictures/view4.jpeg", "/pictures/view5.jpeg", "/pictures/view6.jpeg"];
-
   return (
     <>
       <div className="container">
-        <Slider src={src} />
         <section className="about-section">
-          <div className="row" data-aos="zoom-in-up" data-aos-duration="2000">
+          <div className="row">
             <div className="left-about">
               <p>
                 강원도 양양 상류계곡에 위치한

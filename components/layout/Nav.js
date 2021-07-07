@@ -73,7 +73,7 @@ const Subnav = ({ data }) => {
   );
 };
 
-const Nav = ({ isOpen }) => {
+export default function Nav({ isOpen }) {
   const { isMobile } = useAppContext();
   const [isSubOpen, setIsSubOpen] = useState([false, false, false, false, false, false]);
   //모바일 : isOpen이 false가 되면 subBox모두 닫기
@@ -291,6 +291,4 @@ const Nav = ({ isOpen }) => {
       </style>
     </>
   );
-};
-
-export default Nav;
+}

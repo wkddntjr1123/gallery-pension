@@ -1,24 +1,24 @@
-import PcHeadImage from "../../components/layout/PcHeadImage";
-import MobileHeadImage from "../../components/layout/MobileHeadImage";
+import HeadImage from "../../components/layout/HeadImage";
 
 export default function Info() {
-  const headerMenus = [
-    { menu: "이용안내", link: "/reservation", isActive: true },
-    { menu: "실시간예약", link: "/reservation/service" },
-  ];
-  const src = ["/pictures/view1.jpeg", "/pictures/view1.jpeg"];
+  const mobileData = {
+    title: "이용안내", //string
+    src: ["/pictures/view1.jpeg"], //array
+  };
+  const pcData = {
+    title: "RESERVATION", //string
+    src: "/pictures/view1.jpeg", //string
+    menus: [
+      //array
+      { menu: "이용안내", link: "/reservation", isActive: true },
+      { menu: "실시간예약", link: "/reservation/service" },
+    ],
+    subtitle: "이용안내", //string
+  };
 
   return (
     <>
-      <div className="mobile">
-        <MobileHeadImage src={src} title={"이용안내"} />
-        <h4>이용안내</h4>
-      </div>
-      <div className="pc">
-        <PcHeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />
-        <h2>이용안내</h2>
-      </div>
-
+      <HeadImage mobileData={mobileData} pcData={pcData} />
       <section className="container">
         <div className="head-text">
           <p>· 보호자 동반없는 미성년자는 이용이 불가 합니다.</p>
@@ -82,23 +82,12 @@ export default function Info() {
         </div>
       </section>
       <style jsx>{`
-        .mobile {
-          display: none;
-        }
-        .pc {
-          display: block;
-        }
         .container {
           max-width: 1240px;
           margin: auto;
           padding: 0 5%;
           font-size: 95%;
           color: #616161;
-        }
-        .pc h2 {
-          text-align: center;
-          color: #8a4600;
-          margin: 3rem 0;
         }
         .head-text {
           margin: 3rem 0 2rem 0;
@@ -141,18 +130,6 @@ export default function Info() {
           }
         }
         @media screen and (max-width: 820px) {
-          .mobile {
-            display: block;
-          }
-          .pc {
-            display: none;
-          }
-          .mobile h4 {
-            text-align: center;
-            font-weight: bold;
-            margin: 2.5rem 0 1rem 0;
-            color: #904200;
-          }
           .container {
             padding: 0 0.5rem;
           }

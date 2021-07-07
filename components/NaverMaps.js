@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const NaverMaps = () => {
+export default function NaverMaps() {
   useEffect(() => {
     const container = document.getElementById("map");
 
@@ -50,6 +50,4 @@ const NaverMaps = () => {
       </style>
     </>
   );
-};
-
-export default NaverMaps;
+}

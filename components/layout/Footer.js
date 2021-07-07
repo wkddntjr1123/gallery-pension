@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useAppContext } from "../../libs/Context";
 
-const Footer = () => {
+export default function Footer() {
   const menu = [
     { title: "오시는길", link: "#" },
     { title: "개인정보처리방침", link: "#" },
@@ -189,6 +189,4 @@ const Footer = () => {
       </style>
     </>
   );
-};
-
-export default Footer;
+}
