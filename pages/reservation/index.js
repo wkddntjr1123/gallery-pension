@@ -1,30 +1,34 @@
-import HeadImage from "../../components/layout/HeadImage";
-import { useAppContext } from "../../libs/Context";
+import PcHeadImage from "../../components/layout/PcHeadImage";
+import MobileHeadImage from "../../components/layout/MobileHeadImage";
 
-const Info = () => {
-  const { isMobile } = useAppContext();
-
+export default function Info() {
   const headerMenus = [
     { menu: "이용안내", link: "/reservation", isActive: true },
     { menu: "실시간예약", link: "/reservation/service" },
   ];
+  const src = ["/pictures/view1.jpeg", "/pictures/view1.jpeg"];
 
   return (
     <>
-      {isMobile ? <></> : <HeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />}
+      <div className="mobile">
+        <MobileHeadImage src={src} title={"이용안내"} />
+        <h4>이용안내</h4>
+      </div>
+      <div className="pc">
+        <PcHeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />
+        <h2>이용안내</h2>
+      </div>
+
       <section className="container">
-        <div>
-          <h2>이용안내</h2>
-        </div>
         <div className="head-text">
-          <p>·보호자 동반없는 미성년자는 이용이 불가 합니다.</p>
-          <p>·객실, 발코니에서는 절대 금연이며, 불꽃놀이를 금지합니다.</p>
-          <p>·펜션 주변 계곡이나 위험장소에서 사진 촬영이나 이용시 특별히 주의 바랍니다.(고객분의 부주의로 인한 안전사고는 펜션에서 책임지지 않습니다)</p>
-          <p>·무분별한 오락 및 음주, 고성방가로 다른 이용객에게 불편함을 주지않도록 주의해주시기 바랍니다.</p>
-          <p>·펜션 이용도중 이용자의 부주의로 인한 기물 및시설물 파손 등이 발생할 시 배상책임이 있습니다.</p>
-          <p>·애완동물의 출입은 장소가 협소한 관계로 통제하고 있습니다.</p>
-          <p>·퇴실 시 쓰레기와 음식물 쓰레기는 지정장소에 분리 배출 바라며 사용하신 식기류는 다음 손님을 위해 깨끗하게 세척해 주시기 바랍니다.</p>
-          <p>·퇴실 시 열쇠는 꼭 출입문 옆 열쇠함에 넣어주시기 바랍니다. (열쇠를 분실시 2만원 배상하셔야 합니다)</p>
+          <p>· 보호자 동반없는 미성년자는 이용이 불가 합니다.</p>
+          <p>· 객실, 발코니에서는 절대 금연이며, 불꽃놀이를 금지합니다.</p>
+          <p>· 펜션 주변 계곡이나 위험장소에서 사진 촬영이나 이용시 특별히 주의 바랍니다.(고객분의 부주의로 인한 안전사고는 펜션에서 책임지지 않습니다)</p>
+          <p>· 무분별한 오락 및 음주, 고성방가로 다른 이용객에게 불편함을 주지않도록 주의해주시기 바랍니다.</p>
+          <p>· 펜션 이용도중 이용자의 부주의로 인한 기물 및시설물 파손 등이 발생할 시 배상책임이 있습니다.</p>
+          <p>· 애완동물의 출입은 장소가 협소한 관계로 통제하고 있습니다.</p>
+          <p>· 퇴실 시 쓰레기와 음식물 쓰레기는 지정장소에 분리 배출 바라며 사용하신 식기류는 다음 손님을 위해 깨끗하게 세척해 주시기 바랍니다.</p>
+          <p>· 퇴실 시 열쇠는 꼭 출입문 옆 열쇠함에 넣어주시기 바랍니다. (열쇠를 분실시 2만원 배상하셔야 합니다)</p>
         </div>
         <div className="info-box-div">
           <div className="info-box">
@@ -78,15 +82,23 @@ const Info = () => {
         </div>
       </section>
       <style jsx>{`
+        .mobile {
+          display: none;
+        }
+        .pc {
+          display: block;
+        }
         .container {
           max-width: 1240px;
           margin: auto;
           padding: 0 5%;
           font-size: 95%;
+          color: #616161;
         }
-        h2 {
+        .pc h2 {
           text-align: center;
           color: #8a4600;
+          margin: 3rem 0;
         }
         .head-text {
           margin: 3rem 0 2rem 0;
@@ -129,46 +141,52 @@ const Info = () => {
           }
         }
         @media screen and (max-width: 820px) {
+          .mobile {
+            display: block;
+          }
+          .pc {
+            display: none;
+          }
+          .mobile h4 {
+            text-align: center;
+            font-weight: bold;
+            margin: 2.5rem 0 1rem 0;
+            color: #904200;
+          }
           .container {
             padding: 0 0.5rem;
           }
           .head-text {
             margin-top: 0;
             font-size: 0.9rem;
+            padding: 0 0.9rem;
           }
           .head-text p {
-            font-family: "Noto Sans CJK KR";
             line-height: 1.3rem;
-            padding: 0.4rem 0;
+            padding: 0.3rem 0;
           }
           .info-box {
             display: block;
+            padding: 0 0.5rem;
           }
           .info-box div {
             padding: 0 0;
           }
           .info-box div:first-child {
             width: 100%;
-            font-size: 1.3rem;
-            padding: 1rem 0 0.7rem 0;
+            font-size: 1rem;
+            padding: 1rem 0 0.7rem 0rem;
           }
           .info-box div:last-child {
             font-size: 0.9rem;
             margin-bottom: 1rem;
           }
           .info-box div:last-child p {
-            font-family: "Noto Sans CJK KR";
-            padding: 0.3rem 0 0.3rem 1rem;
+            padding: 0.1rem 0.5rem 0.1rem 0.5rem;
             line-height: 1.3rem;
-          }
-          .info-box div:last-child p::before {
-            content: "- ";
-            color: #7e7e7e;
           }
         }
       `}</style>
     </>
   );
-};
-
-export default Info;
+}

@@ -1,8 +1,14 @@
+import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
-import { useAppContext } from "../../libs/Context";
 
-const Desktop = ({ src, title, menus }) => {
+PcHeadImage.propTypes = {
+  src: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  menus: PropTypes.array.isRequired,
+};
+
+function PcHeadImage({ src, title, menus }) {
   return (
     <>
       <div className="container">
@@ -70,15 +76,6 @@ const Desktop = ({ src, title, menus }) => {
       </style>
     </>
   );
-};
+}
 
-const Mobile = () => {
-  return <></>;
-};
-const HeadImage = ({ src, title, menus }) => {
-  const { isMobile } = useAppContext();
-
-  return isMobile ? <></> : <Desktop src={src} title={title} menus={menus} />;
-};
-
-export default HeadImage;
+export default PcHeadImage;

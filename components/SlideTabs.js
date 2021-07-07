@@ -25,7 +25,7 @@ const SlideTabs = ({ title, contents }) => {
   });
   const classes = useStyles();
   return (
-    <div className="wraper">
+    <div className="wrapper">
       <NoSsr>
         <TabContext value={value}>
           <AppBar position="static" className={classes.header} style={styles.Appber}>

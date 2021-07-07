@@ -1,43 +1,44 @@
 import Image from "next/image";
+import PropTypes from "prop-types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper/core";
 // Import Swiper styles
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
-
+import { useAppContext } from "../libs/Context";
 SwiperCore.use([Pagination, Navigation, Autoplay]);
 
-export default function SimpleSlider() {
+Slider.propTypes = {
+  src: PropTypes.array.isRequired,
+};
+
+export default function Slider({ src }) {
+  const { isMobile } = useAppContext();
+  const height = isMobile ? 1000 : 1200;
   return (
     <>
-      <Swiper
-        pagination={{
-          bullets: true,
-        }}
-        navigation={true}
-        loop={true}
-        loopFillGroupWithBlank={true}
-        className="swiper">
-        <SwiperSlide>
-          <Image src={"/pictures/view1.jpeg"} width={2000} height={1200} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={"/pictures/view2.jpeg"} width={2000} height={1200} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={"/pictures/view3.jpeg"} width={2000} height={1200} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={"/pictures/view4.jpeg"} width={2000} height={1200} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={"/pictures/view5.jpeg"} width={2000} height={1200} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={"/pictures/view6.jpeg"} width={2000} height={1200} alt="" />
-        </SwiperSlide>
-      </Swiper>
+      {/* 사진 개수가 1개면 <Image>, 아니면 Slider */}
+      {src.length > 1 ? (
+        <Swiper
+          pagination={{
+            bullets: true,
+          }}
+          navigation={true}
+          loop={true}
+          loopFillGroupWithBlank={true}
+          autoplay={true}
+          className="swiper">
+          {src.map((item, index) => (
+            <SwiperSlide key={index}>
+              <Image src={item} width={2000} height={height} alt="" />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      ) : (
+        <Image src={src[0]} width={2000} height={height} alt="" />
+      )}
+
       <style jsx global>{`
         :root {
           --swiper-navigation-size: 1.2rem;

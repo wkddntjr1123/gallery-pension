@@ -1,5 +1,5 @@
 import SlideTabs from "../../components/SlideTabs";
-import HeadImage from "../../components/layout/HeadImage";
+import PcHeadImage from "../../components/layout/PcHeadImage";
 
 const Reservation = () => {
   const headerMenus = [
@@ -10,7 +10,7 @@ const Reservation = () => {
 
   return (
     <>
-      <HeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />
+      <PcHeadImage src="/test.png" title="RESERVATION" menus={headerMenus} />
       <section className="gridContainer">
         <SlideTabs {...tabData} />
       </section>

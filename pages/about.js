@@ -1,12 +1,15 @@
-import Slider from "../components/about/Slider";
+import Slider from "../components/Slider";
 import NaverMaps from "../components/about/NaverMaps";
-import Image from "next/image";
+import { useAppContext } from "../libs/Context";
 
 export default function Home() {
+  const { isMobile } = useAppContext();
+  const src = ["/pictures/view1.jpeg", "/pictures/view2.jpeg", "/pictures/view3.jpeg", "/pictures/view4.jpeg", "/pictures/view5.jpeg", "/pictures/view6.jpeg"];
+
   return (
     <>
       <div className="container">
-        <Slider />
+        <Slider src={src} />
         <section className="about-section">
           <div className="row" data-aos="zoom-in-up" data-aos-duration="2000">
             <div className="left-about">
