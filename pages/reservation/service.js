@@ -29,7 +29,12 @@ export default function Reservation() {
         section {
           max-width: 1240px;
           margin: auto;
-          padding: 0 3rem;
+          padding: 0 4rem;
+        }
+        @media screen and (max-width: 820px) {
+          section {
+            padding: 0 1rem;
+          }
         }
       `}</style>
     </>
@@ -221,6 +226,7 @@ const Tab1 = () => {
           .content-box {
             box-shadow: 0px 0px 3px 2px #e8e8e8;
             padding: 1rem;
+            border-radius: 3px;
             margin-bottom: 3rem;
           }
           .content-box p {
@@ -314,7 +320,7 @@ const Tab3 = () => {
       </div>
       <style jsx>{`
         .container {
-          width: 500px;
+          max-width: 500px;
           margin: 4rem auto 6rem auto;
           padding: 5rem;
           box-shadow: 0px 0px 6px 1px #c7c7c7;
@@ -332,9 +338,13 @@ const Tab3 = () => {
         .phone {
           margin-bottom: 3rem;
         }
+        select,
+        input,
+        button {
+          height: 3rem;
+        }
         .name input {
           width: 100%;
-          height: 3rem;
           display: block;
           border: 1px solid #c3c3c3;
           border-radius: 5px;
@@ -354,7 +364,6 @@ const Tab3 = () => {
         .phone input {
           display: block;
           width: 100%;
-          height: 3rem;
           border: 1px solid #c3c3c3;
           border-radius: 5px;
           text-align: center;
@@ -375,19 +384,50 @@ const Tab3 = () => {
         button {
           display: block;
           width: 100%;
-          height: 3rem;
           color: white;
           background-color: #e2573c;
           box-shadow: 0px 0px 8px 0px #dcdcdc;
           border: none;
           cursor: pointer;
           border-radius: 5px;
-          font-size: 1.1rem;
           font-family: inherit;
           transition: background-color 0.5s ease;
         }
         button:hover {
           background-color: #d82a08;
+        }
+        @media screen and (max-width: 820px) {
+          .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 10% 1.5rem;
+            margin: 2rem auto 3rem auto;
+            border-radius: 3px;
+            font-size: 0.9rem;
+          }
+          .container label,
+          div,
+          button {
+            max-width: 300px;
+          }
+          label {
+            max-width: 300px;
+            display: block;
+            margin: 0 auto 0.5rem auto !important;
+          }
+
+          select,
+          input,
+          button {
+            height: 2.2rem;
+            margin: auto !important;
+          }
+          .name {
+            margin: 0 auto 5% auto;
+          }
+          .phone {
+            margin: 0 auto 10% auto;
+          }
         }
       `}</style>
     </>
