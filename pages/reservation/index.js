@@ -7,11 +7,11 @@ export default function Info() {
   };
   const pcData = {
     title: "RESERVATION", //string
-    src: "/pictures/view1.jpeg", //string
+    src: "/test.png", //string
     menus: [
       //array
       { menu: "이용안내", link: "/reservation", isActive: true },
-      { menu: "실시간예약", link: "/reservation/service" },
+      { menu: "실시간예약", link: "/reservation/book" },
     ],
     subtitle: "이용안내", //string
   };

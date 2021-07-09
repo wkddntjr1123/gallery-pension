@@ -26,7 +26,7 @@ export function AppWrapper({ children }) {
   }, []);
 
   return (
-    <AppContext.Provider value={{ isMobile: isMobile, isTop }}>
+    <AppContext.Provider value={{ isMobile: isMobile, isTop: isTop }}>
       {children}
       {isMobile && (
         <style jsx global>{`

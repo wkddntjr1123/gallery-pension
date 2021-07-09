@@ -75,21 +75,21 @@ const Subnav = ({ data }) => {
 
 export default function Nav({ isOpen }) {
   const { isMobile } = useAppContext();
-  const [isSubOpen, setIsSubOpen] = useState([false, false, false, false, false, false]);
+  const [isSubOpen, setIsSubOpen] = useState([false, false, false, false, false]);
+
   //모바일 : isOpen이 false가 되면 subBox모두 닫기
   useEffect(() => {
     if (!isOpen) {
-      setIsSubOpen([false, false, false, false, false, false]);
+      setIsSubOpen([false, false, false, false, false]);
     }
   }, [isOpen]);
 
   const menu = [
     { title: "펜션소개", link: "/about" },
-    { title: "객실소개", link: "#" },
-    { title: "부대시설", link: "#" },
-    { title: "서비스", link: "#" },
+    { title: "객실소개", link: "/room" },
+    { title: "시설&서비스", link: "/facility" },
     { title: "예약", link: "/reservation" },
-    { title: "커뮤니티", link: "#" },
+    { title: "커뮤니티", link: "/community" },
   ];
 
   const subData = {
@@ -98,7 +98,7 @@ export default function Nav({ isOpen }) {
       { title: "오시는길", link: "/about/#location" },
     ],
     menu2: [
-      { title: "A101호(침대)", link: "#" },
+      { title: "A101호(침대)", link: "/room/101" },
       { title: "A102호(침대)", link: "#" },
       { title: "A103호(온돌)", link: "#" },
       { title: "B201호(침대)", link: "#" },
@@ -108,16 +108,14 @@ export default function Nav({ isOpen }) {
     menu3: [
       { title: "개별바비큐장", link: "#" },
       { title: "노래방", link: "#" },
-    ],
-    menu4: [
       { title: "바비큐&숯&그릴", link: "#" },
       { title: "식사", link: "#" },
     ],
-    menu5: [
+    menu4: [
       { title: "이용안내", link: "/reservation" },
-      { title: "실시간예약", link: "/reservation/service" },
+      { title: "실시간예약", link: "/reservation/book" },
     ],
-    menu6: [
+    menu5: [
       { title: "공지사항", link: "#" },
       { title: "갤러리", link: "#" },
     ],
@@ -231,6 +229,7 @@ export default function Nav({ isOpen }) {
             height: 100%;
             display: flex;
             align-items: center;
+            color: white;
           }
           .nav-item a {
             display: inline-block;

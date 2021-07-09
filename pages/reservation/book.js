@@ -12,7 +12,7 @@ export default function Reservation() {
     menus: [
       //array
       { menu: "이용안내", link: "/reservation" },
-      { menu: "실시간예약", link: "/reservation/service", isActive: true },
+      { menu: "실시간예약", link: "/reservation/book", isActive: true },
     ],
     subtitle: "실시간예약", //string
   };
@@ -129,7 +129,7 @@ const Tab1 = () => {
           <p>객실 예약은 전화 및 인터넷 예약으로 가능합니다.</p>
           <p>이용은 예약 및 비예약으로 가능하나 예약손님을 우선으로 적용하오니 예약을 하시는 것이 더욱 편리합니다.</p>
           <p>전화 예약후 객실 예약 금액을 입금계좌로 입금하시면 예약 완료됩니다.</p>
-          <p>예약후 6시간 안에 객실 요금을 완불해주셔야합니다.(※미입금시 자동 예약 취소됩니다.)</p>
+          <p>예약후 6시간 안에 객실 요금을 완불해주셔야합니다.(※미입금시 자동 예약됩니다.)</p>
           <p>당일 또는 하루전 그리고 마지막 남은 객실예약은 예약신청 후 2시간 안에 입금하셔야 합니다.</p>
           <p>예약금 입금시 예약자 이름으로 하셔야 합니다.(다른 이름으로 입금하신 경우 꼭 전화로 알려주세요.)</p>
           <p>성수기 기간은 실시간 예약 페이지를 참고해주세요. </p>
@@ -149,12 +149,12 @@ const Tab1 = () => {
           <span>03.</span> 환불규정
         </h4>
         <div className="content-box">
-          <p>· 올바른 예약문화의 정착을 위하여 불가피한 조치이오니 양해 부탁드립니다.</p>
-          <p>· 환불 적용은 이용요금 100% 입금시에만 적용합니다.</p>
-          <p>· 객실과 날짜는 신중히 생각하시고 결정해주시기 바랍니다.</p>
-          <p>· No-Show 예약건에 대해서는 환불이 불가합니다</p>
-          <p>· 예약일 변경시 발생한 수수료도 취소 수수료와 동일합니다.</p>
-          <p>· 예약시 환불기준을 숙지하시고 예약하시기 바랍니다.</p>
+          <p>올바른 예약문화의 정착을 위하여 불가피한 조치이오니 양해 부탁드립니다.</p>
+          <p>환불 적용은 이용요금 100% 입금시에만 적용합니다.</p>
+          <p>객실과 날짜는 신중히 생각하시고 결정해주시기 바랍니다.</p>
+          <p>No-Show 예약건에 대해서는 환불이 불가합니다</p>
+          <p>예약일 변경시 발생한 수수료도 수수료와 동일합니다.</p>
+          <p>예약시 환불기준을 숙지하시고 예약하시기 바랍니다.</p>
           <table className="fee">
             <thead>
               <tr>
@@ -165,42 +165,42 @@ const Tab1 = () => {
             </thead>
             <tbody>
               <tr>
-                <td>이용일 당일 취소</td>
+                <td>이용일 당일</td>
                 <td>100%</td>
                 <td>0%(환불없음)</td>
               </tr>
               <tr>
-                <td>이용일 1일전 취소</td>
+                <td>이용일 1일전</td>
                 <td>90%</td>
                 <td>10%</td>
               </tr>
               <tr>
-                <td>이용일 2일전 취소</td>
+                <td>이용일 2일전</td>
                 <td>80%</td>
                 <td>20%</td>
               </tr>
               <tr>
-                <td>이용일 3일전 취소</td>
+                <td>이용일 3일전</td>
                 <td>70%</td>
                 <td>30%</td>
               </tr>
               <tr>
-                <td>이용일 4일전 취소</td>
+                <td>이용일 4일전</td>
                 <td>60%</td>
                 <td>40%</td>
               </tr>
               <tr>
-                <td>이용일 5일전 취소</td>
+                <td>이용일 5일전</td>
                 <td>50%</td>
                 <td>50%</td>
               </tr>
               <tr>
-                <td>이용일 6일전 취소</td>
+                <td>이용일 6일전</td>
                 <td>40%</td>
                 <td>60%</td>
               </tr>
               <tr>
-                <td>이용일 7일전 취소</td>
+                <td>이용일 7일전</td>
                 <td>10%</td>
                 <td>90%</td>
               </tr>
@@ -230,7 +230,6 @@ const Tab1 = () => {
             margin-bottom: 3rem;
           }
           .content-box p {
-            font-size: 1rem;
             line-height: 2rem;
           }
           table.room {
@@ -272,15 +271,30 @@ const Tab1 = () => {
             background-color: #f3f3f3;
           }
           @media screen and (max-width: 820px) {
-            table.room {
-              font-size: 0.9rem;
+            table.room,
+            table.fee {
+              font-size: 0.8rem;
             }
-            table.room thead tr th {
+            table.room thead tr th,
+            table.fee thead tr th {
               padding: 0.6rem 0.1rem;
             }
-            table.room tbody tr td {
+            table.room tbody tr td,
+            table.fee tbody tr td {
               padding: 0.7rem 0.1rem;
               vertical-align: middle;
+            }
+
+            .content-box {
+              padding: 1rem 0.4rem;
+              font-size: 0.9rem;
+            }
+            .content-box p {
+              padding: 0.4rem 0;
+              line-height: 1.4rem;
+            }
+            .content-box p::before {
+              content: "· ";
             }
           }
         `}
