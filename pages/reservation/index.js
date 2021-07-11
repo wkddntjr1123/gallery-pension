@@ -1,24 +1,13 @@
 import HeadImage from "../../components/layout/HeadImage";
 
 export default function Info() {
-  const mobileData = {
-    title: "이용안내", //string
-    src: ["/pictures/view1.jpeg"], //array
-  };
-  const pcData = {
-    title: "RESERVATION", //string
+  const headData = {
+    title: "reservation", //string
     src: "/test.png", //string
-    menus: [
-      //array
-      { menu: "이용안내", link: "/reservation", isActive: true },
-      { menu: "실시간예약", link: "/reservation/book" },
-    ],
-    subtitle: "이용안내", //string
   };
-
   return (
     <>
-      <HeadImage mobileData={mobileData} pcData={pcData} />
+      <HeadImage data={headData} />
       <section className="container">
         <div className="head-text">
           <p>· 보호자 동반없는 미성년자는 이용이 불가 합니다.</p>

@@ -1,22 +1,15 @@
 import HeadImage from "../../components/layout/HeadImage";
 import RoundImage from "../../components/RoundImage";
 import Link from "next/link";
+import PageNav from "../../components/PageNav";
 
 export default function Facility() {
-  const mobileData = {
-    title: "FACILITY & SERVICE", //string
-    src: ["/pictures/view1.jpeg"], //array
-  };
-  const pcData = {
-    title: "FACILITY & SERVICE", //string
-    src: "/test.png", //string
-    menus: [
-      //array
-    ],
-    subtitle: "FACILITY & SERVICE",
+  const headData = {
+    title: "facility service",
+    src: "/test.png",
   };
 
-  const data = [
+  const roomData = [
     { src: "/test.png", title: "개별바베큐장", color: "white", krTitle: "개별바베큐장", link: "#" },
     { src: "/test.png", title: "test2", color: "white", krTitle: "test", link: "#" },
     { src: "/test.png", title: "test3", color: "white", krTitle: "test", link: "#" },
@@ -24,25 +17,32 @@ export default function Facility() {
   ];
   return (
     <>
-      <HeadImage mobileData={mobileData} pcData={pcData} />
-      <section className="container">
-        {data.map((item, index) => (
-          <div className="box" key={index}>
-            <RoundImage src={item.src} title={item.title} color={item.color} />
-            <div className="en-title">{item.krTitle}</div>
-            <Link href={item.link}>
-              <a className="link">
-                <span>→</span> MORE
-              </a>
-            </Link>
-          </div>
-        ))}
+      <HeadImage data={headData} />
+      <section>
+        <PageNav />
+        <div className="container">
+          {roomData.map((item, index) => (
+            <div className="box" key={index}>
+              <RoundImage src={item.src} title={item.title} color={item.color} />
+              <div className="en-title">{item.krTitle}</div>
+              <Link href={item.link}>
+                <a className="link">
+                  <span>→</span> MORE
+                </a>
+              </Link>
+            </div>
+          ))}
+        </div>
       </section>
 
       <style jsx>{`
-        .container {
+        section {
           padding: 0 1rem;
           margin-bottom: 3rem;
+          max-width: 1400px;
+          margin: auto;
+        }
+        .container {
           display: flex;
           justify-content: center;
           gap: 2vw;

@@ -2,26 +2,16 @@ import HeadImage from "../../components/layout/HeadImage";
 import SlideTabs from "../../components/SlideTabs";
 
 export default function Reservation() {
-  const mobileData = {
-    title: "실시간예약", //string
-    src: ["/pictures/view1.jpeg", "/pictures/view1.jpeg"], //array
-  };
-  const pcData = {
-    title: "RESERVATION", //string
+  const headData = {
+    title: "reservation", //string
     src: "/test.png", //string
-    menus: [
-      //array
-      { menu: "이용안내", link: "/reservation" },
-      { menu: "실시간예약", link: "/reservation/book", isActive: true },
-    ],
-    subtitle: "실시간예약", //string
   };
 
   const tabData = { title: ["예약안내", "실시간예약", "예약확인/취소"], contents: [<Tab1 />, "내용2", <Tab3 />] };
 
   return (
     <>
-      <HeadImage mobileData={mobileData} pcData={pcData} />
+      <HeadImage data={headData} />
       <section>
         <SlideTabs {...tabData} />
       </section>

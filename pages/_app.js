@@ -72,6 +72,7 @@ function MyApp({ Component, pageProps }) {
           font-weight: bold;
           src: url("/fonts/NotoSansKR-Bold.otf") format("truetype");
         }
+
         html,
         body {
           font-family: "Arita-buri-SemiBold", "Noto Sans CJK KR", sans-serif;
