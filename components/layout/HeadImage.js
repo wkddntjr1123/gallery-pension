@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { MobileHeadSlider } from "../Slider";
 import Image from "next/image";
 import Link from "next/link";
-
+import RoundImage from "../RoundImage";
 MobileHeadImage.propTypes = {
   src: PropTypes.array,
   title: PropTypes.string,

@@ -86,7 +86,7 @@ export default function Header({ children }) {
             width: 100%;
             height: ${isTop ? "6rem" : "4rem"};
             background-color: ${isTop ? "transparent" : "white"};
-            color: ${isTop ? "#e4f0ff;" : "#292929"};
+            color: ${isTop ? "white" : "#292929"};
             transition: color ease-in-out 0.3s, height ease-in-out 0.4s, background-color ease-in-out 0.5s;
             z-index: 101 !important;
           }

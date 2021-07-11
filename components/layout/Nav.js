@@ -229,7 +229,6 @@ export default function Nav({ isOpen }) {
             height: 100%;
             display: flex;
             align-items: center;
-            color: white;
           }
           .nav-item a {
             display: inline-block;

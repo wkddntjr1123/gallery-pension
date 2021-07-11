@@ -26,6 +26,15 @@ function MyApp({ Component, pageProps }) {
       </main>
       <Footer />
       <MobileBar />
+      <style jsx>
+        {`
+          @media screen and (max-width: 820px) {
+            .main {
+              margin-top: 3.5rem;
+            }
+          }
+        `}
+      </style>
       <style jsx global>{`
         @font-face {
           font-family: "Arita-buri-SemiBold";
@@ -45,9 +54,6 @@ function MyApp({ Component, pageProps }) {
           font-weight: bold;
           font-style: normal;
         }
-  
-        }
-
         @font-face {
           font-family: "Noto Sans CJK KR";
           font-style: normal;
@@ -66,10 +72,11 @@ function MyApp({ Component, pageProps }) {
           font-weight: bold;
           src: url("/fonts/NotoSansKR-Bold.otf") format("truetype");
         }
-        html,body{
+        html,
+        body {
           font-family: "Arita-buri-SemiBold", "Noto Sans CJK KR", sans-serif;
         }
-        
+
         html,
         body,
         div,
@@ -154,7 +161,7 @@ function MyApp({ Component, pageProps }) {
           vertical-align: baseline;
           box-sizing: border-box;
           text-decoration: none;
-          color:inherit;
+          color: inherit;
         }
 
         /* HTML5 display-role reset for older browsers */
