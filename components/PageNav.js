@@ -1,33 +1,20 @@
 import Link from "next/link";
 
 export default function PageNav({ data }) {
-  const testData = {
-    mainLink: "#",
-    classification: "facility",
-    title: "barbecue",
-    nav: [
-      { title: "개별테라스", link: "#" },
-      { title: "개별바베큐장", link: "#" },
-      { title: "펜션앞계곡", link: "#" },
-      { title: "테스트1", link: "#" },
-      { title: "테스트2", link: "#" },
-    ],
-  };
-
   return (
     <>
       <div className="container">
-        <div className="classification">{testData.classification} Info</div>
-        <div className="title">{testData.title}</div>
+        <div className="classification">{data.classification} Info</div>
+        <div className="title">{data.title}</div>
         <div className="link-box">
           <ul className="nav">
             <li className="main-link">
-              <Link href={testData.mainLink}>
+              <Link href={data.mainLink}>
                 <a>전체보기</a>
               </Link>
             </li>
-            {testData.nav.map((item, index) => (
-              <li key={index}>
+            {data.nav.map((item, index) => (
+              <li key={index} className={item.isActive ? "active" : ""}>
                 <Link href={item.link}>
                   <a>{item.title}</a>
                 </Link>
@@ -45,26 +32,38 @@ export default function PageNav({ data }) {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 0.1rem;
+            gap: 0.2rem;
           }
           .classification {
             font-size: 1.2rem;
             font-weight: 400;
             text-transform: capitalize;
             color: #b9b9b9;
+            margin-left: 0.5rem;
           }
           .title {
             font-size: 2.2rem;
             text-transform: uppercase;
             margin-left: -3px;
             font-weight: 400;
+            margin-left: 0.3rem;
           }
           .nav {
             font-family: "Arita-buri-SemiBold";
             font-size: 0.9rem;
             margin-top: 1.5rem;
             display: flex;
-            gap: 3rem;
+            gap: 1vw;
+            line-height: 2rem;
+            border-bottom: 1px solid #d6d6d6;
+          }
+          .nav li {
+            padding: 0 1.5vw;
+            color: #888888;
+          }
+          .active {
+            border-bottom: 2px solid #ff6d6d;
+            color: black !important;
           }
           @media screen and (max-width: 820px) {
             .main-link {

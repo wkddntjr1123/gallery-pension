@@ -27,14 +27,19 @@ const Subnav = ({ data }) => {
           background-color: rgba(34, 34, 34, 0.7);
           top: 4rem;
         }
+        .sub-box li {
+          border-bottom: 1px solid #555555;
+        }
         .sub-box a {
           display: block;
-          border-bottom: 1px solid #c2c2c2;
           transition: color ease 0.3s;
           font-size: 0.8rem;
           text-align: center;
           line-height: 2.5rem;
           color: #c2c2c2;
+        }
+        .sub-box li:last-child {
+          border: 0;
         }
         .sub-box a:hover {
           color: white;
@@ -87,7 +92,7 @@ export default function Nav({ isOpen }) {
   const menu = [
     { title: "펜션소개", link: "/about" },
     { title: "객실소개", link: "/room" },
-    { title: "시설&서비스", link: "/facility" },
+    { title: "시설&서비스", link: "/facility-service" },
     { title: "예약", link: "/reservation" },
     { title: "커뮤니티", link: "/community" },
   ];
@@ -207,9 +212,9 @@ export default function Nav({ isOpen }) {
             </li>
           ))}
           {!isMobile && (
-            <li className="nav-item">
+            <li className="nav-item band">
               <a href="https://band.us/n/a4ad53e274s4K" target="_blank">
-                <Image src="/icons/band.png" width={40} height={40}></Image>
+                <Image src="/icons/band.png" width={30} height={30}></Image>
               </a>
             </li>
           )}
@@ -268,6 +273,7 @@ export default function Nav({ isOpen }) {
             .nav-item:last-child {
               border-bottom: none !important;
             }
+
             .mb-sub-icon {
               display: block;
               position: absolute;
