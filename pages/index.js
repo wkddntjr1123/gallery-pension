@@ -1,9 +1,21 @@
-import RoundImage from "../components/RoundImage";
+import HoverImage from "../components/HoverImage";
 
 export default function Main() {
   return (
-    <div style={{ height: "200vh" }}>
-      <RoundImage src="/test.png" title={"test"} />
-    </div>
+    <>
+      <div style={{ height: "200vh" }}>
+        <div className="test">
+          <HoverImage title={"test"} link="#" src="/test.png" />
+        </div>
+      </div>
+      <style jsx>
+        {`
+          .test {
+            width: 20rem;
+            height: 10rem;
+          }
+        `}
+      </style>
+    </>
   );
 }

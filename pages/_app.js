@@ -7,7 +7,6 @@ import "aos/dist/aos.css";
 import Head from "next/head";
 import { useEffect } from "react";
 import { AppWrapper } from "../libs/Context";
-import { useMediaQuery } from "react-responsive";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
