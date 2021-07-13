@@ -86,7 +86,7 @@ export default function Facility() {
           border-bottom: 2px solid #c2c2c2;
         }
         .title span {
-          font-size: max(2.9vw, 2.6rem);
+          font-size: max(2.5vw, 2.6rem);
           letter-spacing: -0.1rem;
           margin-right: 0.3rem;
           color: #516c91;
@@ -94,7 +94,7 @@ export default function Facility() {
         .contents {
           width: 80%;
           padding-right: 1rem;
-          font-size: max(1.1vw, 1rem);
+          font-size: max(1vw, 0.95rem);
           font-family: "Noto Sans CJK KR";
         }
         .contents p {
@@ -115,8 +115,7 @@ export default function Facility() {
 
         @media (hover: hover) {
           .link:hover {
-            background-color: #7d9bd3;
-            color: white;
+            background-color: #dadada;
           }
         }
 
@@ -144,17 +143,17 @@ export default function Facility() {
           }
           .title {
             width: 90%;
-            font-size: max(4vw, 1.4rem);
+            font-size: clamp(1.3rem, 5vw, 2rem);
           }
           .title span {
-            font-size: max(5vw, 2rem);
+            font-size: clamp(1.8rem, 5.5vw, 2.5rem);
           }
           .contents {
             width: 90%;
-            font-size: max(2vw, 0.9rem);
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
           }
           .link {
-            font-size: max(2vw, 0.65rem);
+            font-size: clamp(0.7rem, 2.5vw, 1rem);
           }
         }
       `}</style>

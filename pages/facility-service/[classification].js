@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import PageNav from "../../components/PageNav";
 import HeadImage from "../../components/layout/HeadImage";
+import Image from "next/image";
+
 export default function FacilityService() {
   const router = useRouter();
   const { classification } = router.query;
@@ -19,6 +21,8 @@ export default function FacilityService() {
       { title: "펜션앞계곡", link: "/facility-service/valley" },
       { title: "테스트1", link: "#" },
       { title: "테스트2", link: "#" },
+      { title: "테스트2", link: "#" },
+      { title: "테스트2", link: "#" },
     ],
   };
   navData.nav.map((item) => {
@@ -30,9 +34,21 @@ export default function FacilityService() {
     }
   });
   const data = {
-    terrace: {},
-    barbecue: {},
-    valley: {},
+    terrace: {
+      title: "개별바베큐",
+      contents: ["프라이빗한 둘만의 낭만바비큐, 전객실에서 즐기실 수 있습니다.", "숯+그릴 금액 : 10,000원 (1~2인 기준) / 20,000원 (3~4인 기준)", "이용 시간 (바비큐 이용시간 : 입실 후 ~ 오후 11시까지 / 숯+그릴 제공시간 : 입실 후 ~ 오후 10시까지 )", "※개인 화기는 사용 금지입니다."],
+      src: ["/test.png", "/test.png", "/test.png", "/test.png"],
+    },
+    barbecue: {
+      title: "개별바베큐",
+      contents: ["프라이빗한 둘만의 낭만바비큐, 전객실에서 즐기실 수 있습니다.", "숯+그릴 금액 : 10,000원 (1~2인 기준) / 20,000원 (3~4인 기준)", "이용 시간 (바비큐 이용시간 : 입실 후 ~ 오후 11시까지 / 숯+그릴 제공시간 : 입실 후 ~ 오후 10시까지 )", "※개인 화기는 사용 금지입니다."],
+      src: ["/test.png", "/test.png", "/test.png", "/test.png"],
+    },
+    valley: {
+      title: "개별바베큐",
+      contents: ["프라이빗한 둘만의 낭만바비큐, 전객실에서 즐기실 수 있습니다.", "숯+그릴 금액 : 10,000원 (1~2인 기준) / 20,000원 (3~4인 기준)", "이용 시간 (바비큐 이용시간 : 입실 후 ~ 오후 11시까지 / 숯+그릴 제공시간 : 입실 후 ~ 오후 10시까지 )", "※개인 화기는 사용 금지입니다."],
+      src: ["/test.png", "/test.png", "/test.png", "/test.png"],
+    },
   };
   let selected = {};
 
@@ -55,15 +71,52 @@ export default function FacilityService() {
       <HeadImage data={headData} />
       <section className="container">
         <PageNav data={navData} />
+        <div className="data-box">
+          <div className="text-box">
+            <div className="title">{selected.title}</div>
+            <div className="contents">
+              {selected.contents.map((item, index) => (
+                <p key={index}>{item}</p>
+              ))}
+            </div>
+          </div>
+          <div className="img-box">
+            {selected.src.map((item, index) => (
+              <div key={index} className="image">
+                <Image src={item} layout="fill" />
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <style jsx>{`
         .container {
-          max-width: 1240px;
+          max-width: 1280px;
           margin: auto;
-          padding: 0 5%;
+          padding: 0 1%;
           font-size: 95%;
-          color: #616161;
+          color: #4b4b4b;
+        }
+        .text-box {
+          margin-bottom: 5rem;
+        }
+        .text-box .title {
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+        .text-box .contents {
+          font-size: 1rem;
+        }
+        .img-box {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2.5vw 0.6vw;
+        }
+        .image {
+          position: relative;
+          width: 100%;
+          padding-top: 65%;
         }
       `}</style>
     </>

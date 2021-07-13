@@ -26,6 +26,7 @@ export default function HeadImage({ data }) {
             filter: brightness(0.7);
           }
           .text-box {
+            width: 100%;
             height: 50%;
             display: flex;
             flex-direction: column;
@@ -70,10 +71,10 @@ export default function HeadImage({ data }) {
               max-height: 340px;
             }
             .text-box p {
-              font-size: 1.1rem;
+              font-size: 4vw;
             }
             .text-box h1 {
-              font-size: 2.7rem;
+              font-size: clamp(1.5rem, 7vw, 3rem);
             }
           }
         `}
