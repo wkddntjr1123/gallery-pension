@@ -9,7 +9,16 @@ export default function Facility() {
   };
 
   const data = [
-    { src: "/test.png", title: "개별바베큐장", contents: ["저희 펜션에서는 바비큐숯과 그릴을 대여해 드리고 있습니다.", "연인, 가족, 친구들과 함께 자연경관 안에서 맛있는 바비큐파티를 즐겨보세요", "(바비큐 숯, 그릴 이용요금 2인기준 2만원 입니다.)"], link: "/facility-service/barbecue" },
+    {
+      src: "/test.png",
+      title: "개별바베큐장",
+      contents: [
+        "저희 펜션에서는 바비큐숯과 그릴을 대여해 드리고 있습니다.",
+        "연인, 가족, 친구들과 함께 자연경관 안에서 맛있는 바비큐파티를 즐겨보세요",
+        "(바비큐 숯, 그릴 이용요금 2인기준 2만원 입니다.)",
+      ],
+      link: "/facility-service/barbecue",
+    },
     { src: "/test.png", title: "test2", contents: ["test1", "test2", "test3"], link: "#" },
     { src: "/test.png", title: "test3", contents: ["test1", "test2", "test3"], link: "#" },
     { src: "/test.png", title: "test4", contents: ["test1", "test2", "test3"], link: "#" },
@@ -46,7 +55,7 @@ export default function Facility() {
       <style jsx>{`
         .container {
           padding: 0 2rem;
-          margin: 3rem auto;
+          margin: 4rem auto;
           max-width: 1400px;
         }
         .wrapper {

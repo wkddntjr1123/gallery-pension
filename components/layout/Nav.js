@@ -56,6 +56,7 @@ const Subnav = ({ data }) => {
           }
           .sub-box li {
             text-align: start;
+            border-bottom: none;
           }
           .sub-box li:last-child {
             margin-bottom: 0.8rem;
@@ -103,6 +104,7 @@ export default function Nav({ isOpen }) {
       { title: "오시는길", link: "/about/#location" },
     ],
     menu2: [
+      { title: "미리보기", link: "/room" },
       { title: "A101호(침대)", link: "/room/101" },
       { title: "A102호(침대)", link: "#" },
       { title: "A103호(온돌)", link: "#" },
@@ -111,7 +113,8 @@ export default function Nav({ isOpen }) {
       { title: "B203호(온돌)", link: "#" },
     ],
     menu3: [
-      { title: "개별바비큐장", link: "#" },
+      { title: "미리보기", link: "/facility-service" },
+      { title: "개별바비큐장", link: "/facility-service/barbecue" },
       { title: "노래방", link: "#" },
       { title: "바비큐&숯&그릴", link: "#" },
       { title: "식사", link: "#" },

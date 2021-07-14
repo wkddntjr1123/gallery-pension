@@ -5,16 +5,14 @@ import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper/core";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
-import { useAppContext } from "../libs/Context";
 
 SwiperCore.use([Pagination, Navigation, Autoplay]);
 
-MobileHeadSlider.propTypes = {
+SimpleSlider.propTypes = {
   src: PropTypes.array,
-  mobileHeight: PropTypes.string,
 };
 
-export function MobileHeadSlider({ src, mobileHeight }) {
+export function SimpleSlider({ src, height }) {
   return (
     <>
       {/* 사진 개수가 1개면 <Image>, 아니면 Slider */}
@@ -45,7 +43,7 @@ export function MobileHeadSlider({ src, mobileHeight }) {
         {`
           .wrapper {
             width: 100%;
-            height: ${mobileHeight};
+            height: 100%;
           }
         `}
       </style>
@@ -55,7 +53,7 @@ export function MobileHeadSlider({ src, mobileHeight }) {
             --swiper-navigation-size: 1.2rem;
           }
           .swiper {
-            height: ${mobileHeight};
+            height: 100%;
           }
           .swiper-button-prev,
           .swiper-button-next {

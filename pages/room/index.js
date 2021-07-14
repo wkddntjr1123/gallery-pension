@@ -35,14 +35,13 @@ export default function Room() {
       <style jsx>{`
         .container {
           max-width: 1400px;
-          margin: auto;
+          margin: 3rem auto 7rem auto;
           padding: 0 3%;
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
           grid-template-rows: 1fr 1fr;
-          row-gap: 10vh;
+          gap: 10vh;
           column-gap: 3vh;
-          margin-bottom: 5rem;
         }
         .info-box {
           padding-top: 1rem;
