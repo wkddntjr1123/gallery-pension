@@ -7,6 +7,7 @@ import { SimpleSlider } from "../../components/Slider";
 export default function FacilityService() {
   const router = useRouter();
   const { classification } = router.query;
+
   const headData = {
     title: "facility service",
     src: "/test.png",
@@ -34,6 +35,7 @@ export default function FacilityService() {
       return item;
     }
   });
+
   const data = {
     terrace: {
       title: "개별바베큐",
@@ -66,16 +68,19 @@ export default function FacilityService() {
       src: ["/test.png", "/test.png", "/test.png", "/test.png"],
     },
   };
-  let selected = {};
 
+  let selected = {};
   switch (classification) {
     case "terrace": //개별테라스
+      headData.subTitle = "개별테라스";
       selected = data.terrace;
       break;
     case "barbecue": //개별바베큐
+      headData.subTitle = "개별바베큐장";
       selected = data.barbecue;
       break;
     case "valley": //펜션앞계곡
+      headData.subTitle = "펜션앞계곡";
       selected = data.valley;
       break;
     default:

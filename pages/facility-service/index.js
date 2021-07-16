@@ -6,6 +6,7 @@ export default function Facility() {
   const headData = {
     title: "facility service",
     src: "/test.png",
+    subTitle: "시설 및 서비스 미리보기",
   };
 
   const data = [
@@ -76,6 +77,7 @@ export default function Facility() {
           width: 50%;
           position: relative;
           padding-bottom: 30%;
+          box-shadow: 0px 0px 4px 0px #d6d6d6;
         }
         .text-box {
           width: 45%;
@@ -84,6 +86,7 @@ export default function Facility() {
           align-items: center;
           justify-content: center;
           gap: 2vw;
+          box-shadow: 0px 0px 4px 0px #e2e2e2;
         }
         .title {
           width: 80%;

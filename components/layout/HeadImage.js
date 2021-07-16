@@ -10,10 +10,20 @@ export default function HeadImage({ data }) {
         <div className="text-box">
           <p>gallery pension</p>
           <h1>{data.title}</h1>
-          <div className="line"></div>
-          <div className="text">갤러리펜션 객실 미리보기</div>
+          {data.subTitle && (
+            <>
+              <div className="line"></div>
+              <div className="text">{data.subTitle}</div>
+            </>
+          )}
         </div>
-        <div className="scroll-box">asdf</div>
+
+        <div className="scroll-box">
+          <span className="mouse">
+            <span></span>
+          </span>
+          Scroll
+        </div>
       </div>
       <style jsx>
         {`
@@ -58,9 +68,9 @@ export default function HeadImage({ data }) {
             margin: 0.6rem 0 0 0;
           }
           .text-box .line {
-            width: 3.5rem;
+            width: clamp(4rem, 7vw, 7rem);
             height: 1px;
-            margin: 1rem 0;
+            margin: 1.2rem 0 1.7rem 0;
             background-color: #fff;
           }
           .text-box .text {
@@ -73,8 +83,48 @@ export default function HeadImage({ data }) {
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            margin-bottom: 3rem;
+            margin-bottom: 9rem;
+            font-size: 0.8rem;
+            opacity: 0.6;
           }
+          .mouse {
+            position: relative;
+            display: block;
+            width: 1.8rem;
+            height: 3rem;
+            margin: 0 auto 0.5rem auto;
+            box-sizing: border-box;
+            border: 2px solid white;
+            border-radius: 100px;
+          }
+          .mouse span {
+            position: absolute;
+            display: block;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0.45rem;
+            height: 0.45rem;
+            background-color: white;
+            border-radius: 100%;
+            animation: scroll-animation 2s linear infinite;
+          }
+          @keyframes scroll-animation {
+            0% {
+              top: 15%;
+            }
+            20% {
+              top: 35%;
+            }
+            60% {
+              opacity: 0;
+              top: 35%;
+            }
+            100% {
+              opacity: 0;
+              top: 15%;
+            }
+          }
+
           @media screen and (max-width: 1100px) {
             .image-box {
               height: 30rem;
@@ -85,6 +135,9 @@ export default function HeadImage({ data }) {
             .text-box h1 {
               font-size: 3.2rem;
             }
+            .scroll-box {
+              margin-bottom: 4.5rem;
+            }
           }
           @media screen and (max-width: 820px) {
             .image-box {
@@ -92,10 +145,20 @@ export default function HeadImage({ data }) {
               max-height: 340px;
             }
             .text-box p {
-              font-size: 4vw;
+              font-size: clamp(0.8rem, 3.5vw, 1rem);
             }
             .text-box h1 {
               font-size: clamp(1.5rem, 7vw, 3rem);
+            }
+            .text-box .line {
+              width: clamp(3rem, 8vw, 4rem);
+              margin: 3.3vw 0 4.1vw 0;
+            }
+            .text-box .text {
+              font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            }
+            .scroll-box {
+              display: none;
             }
           }
         `}

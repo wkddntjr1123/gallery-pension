@@ -5,6 +5,7 @@ export default function Room() {
   const headData = {
     title: "rooms",
     src: "/test.png",
+    subTitle: "객실 미리보기",
   };
   const roomData = [
     { room: "a101", title: "room a101", src: "/test.png", detail: "개별테라스,개별바비큐", people: "기준 : 2명, 최대 : 4명", link: "#" },
